@@ -18,6 +18,9 @@
     <link href="assets/css/icons.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <script src="project/js/vue.js" charset="utf-8"></script>
+    <script src="project/js/echarts.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="project/js/echarts-map-china.js"></script>
 
 
     <!-- loader-->
@@ -29,7 +32,7 @@
     <link href="assets/css/semi-dark.css" rel="stylesheet"/>
     <link href="assets/css/header-colors.css" rel="stylesheet"/>
 
-    <title>Onedash - Bootstrap 5 Admin Template</title>
+    <title>参与者分析</title>
 </head>
 
 <body>
@@ -714,36 +717,36 @@
         <div class="card overflow-hidden radius-10">
             <div class="card-body">
                 <div class="d-flex align-items-center">
-                    <img src="assets/images/avatars/其他诈骗头像.jpg" class="rounded-circle p-1 border" width="90"
+                    <img src="assets/images/head/沙伯儿.jpg" class="rounded-circle p-1 border" width="90"
                          height="90" alt="...">
                     <div class="flex-grow-1 ms-3">
-                        <h5 class="mt-0">主页捐款</h5>
+                        <h5 class="mt-0">沙伯儿</h5>
                         <hr>
-                        <p class="mb-0">	@-MCTinG: 需要嫲烦善良的路人邦忙！䒸/癌让我娃儿哭泣了无数次，我不想再看到他哭泣了！</p>
+                        <p class="mb-0">有本事的人在为自己的成功而忙，没本事的人在为别人的成功而忙；有本事的人把自己变成别人的成本，没本事的人把自己变成别人的利润，没有项目兼職能不能推荐下[鲜花] （扌区）995559063 （扌区）1360084083 ​​​</p>
 
                         <div class="d-flex align-items-center justify-content-around mt-5 gap-3">
                             <div class="text-center">
-                                <h6 class="mb-0">45</h6>
+                                <h6 class="mb-0">95</h6>
                                 <p class="mb-0 text-secondary">关注</p>
                             </div>
                             <div class="text-center">
-                                <h6 class="mb-0">15</h6>
+                                <h6 class="mb-0">110</h6>
                                 <p class="mb-0 text-secondary">粉丝</p>
                             </div>
                             <div class="text-center">
-                                <h6 class="mb-0">86</h6>
+                                <h6 class="mb-0">240</h6>
                                 <p class="mb-0 text-secondary">微博数</p>
                             </div>
                             <div class="text-center">
-                                <h6 class="mb-0">2</h6>
+                                <h6 class="mb-0">23</h6>
                                 <p class="mb-0 text-secondary">诈骗信息数</p>
                             </div>
                             <div class="text-center">
-                                <h6 class="mb-0">2022-5-6-9:53</h6>
+                                <h6 class="mb-0">2022-05-23 15:29</h6>
                                 <p class="mb-0 text-secondary">发布时间</p>
                             </div>
                             <div class="text-center">
-                                <h6 class="mb-0">广东</h6>
+                                <h6 class="mb-0">安徽</h6>
                                 <p class="mb-0 text-secondary">IP地址</p>
                             </div>
                         </div>
@@ -762,13 +765,8 @@
         <hr/>
         <div class="card">
             <div class="card-body">
-                <div class="chart-container1">
-                    <div id="china-map"></div>
-                    <img src="assets/plugins/fraud_info_user/地图.png" , width="80%" ， height="80%">
-                    <!--                    <iframe src="assets/plugins/fraud_info_user/china-map/index.html" scrolling="no"></iframe>-->
-                </div>
+                <div class="col-md-12" id="china-map" style="width: 100%;height: 485px"></div>
             </div>
-
         </div>
         <!--        柱状图-->
         <div class="card">
@@ -1041,10 +1039,6 @@
 <script src="assets/js/app.js"></script>
 <script src="assets/js/index2.js"></script>
 
-<!--&lt;!&ndash;<script src="https://www.jq22.com/jquery/echarts-4.2.1.min.js"></script>&ndash;&gt;-->
-<!--<script type="text/javascript" src="project/js/echarts.min.js"></script>-->
-<!--<script type="text/javascript" src="assets/plugins/fraud_info_user/map/china.js"></script>-->
-
 <script>
     <!--    城市分布 柱状图-->
     new Chart(document.getElementById("chart_bar"), {
@@ -1071,7 +1065,7 @@
             maintainAspectRatio: false,
             title: {
                 display: true,
-                text: 'Population growth (millions)'
+                // text: 'Population growth (millions)'
             }
         }
     });
@@ -1191,6 +1185,307 @@
 
 </script>
 
+<!--地图-->
+<script>
+    //初始化echarts实例
+    const scatterMap = echarts.init(document.getElementById("china-map"));
+    //城市经纬度
+    const scatterGeo = {
+        "海门":[121.15,31.89],
+        "鄂尔多斯":[109.781327,39.608266],
+        "招远":[120.38,37.35],
+        "舟山":[122.207216,29.985295],
+        "齐齐哈尔":[123.97,47.33],
+        "盐城":[120.13,33.38],
+        "赤峰":[118.87,42.28],
+        "青岛":[120.33,36.07],
+        "乳山":[121.52,36.89],
+        "金昌":[102.188043,38.520089],
+        "泉州":[118.58,24.93],
+        "莱西":[120.53,36.86],
+        "日照":[119.46,35.42],
+        "胶南":[119.97,35.88],
+        "南通":[121.05,32.08],
+        "拉萨":[91.11,29.97],
+        "云浮":[112.02,22.93],
+        "梅州":[116.1,24.55],
+        "文登":[122.05,37.2],
+        "上海":[121.48,31.22],
+        "攀枝花":[101.718637,26.582347],
+        "威海":[122.1,37.5],
+        "承德":[117.93,40.97],
+        "厦门":[118.1,24.46],
+        "汕尾":[115.375279,22.786211],
+        "潮州":[116.63,23.68],
+        "丹东":[124.37,40.13],
+        "太仓":[121.1,31.45],
+        "曲靖":[103.79,25.51],
+        "烟台":[121.39,37.52],
+        "福州":[119.3,26.08],
+        "瓦房店":[121.979603,39.627114],
+        "即墨":[120.45,36.38],
+        "抚顺":[123.97,41.97],
+        "玉溪":[102.52,24.35],
+        "张家口":[114.87,40.82],
+        "阳泉":[113.57,37.85],
+        "莱州":[119.942327,37.177017],
+        "湖州":[120.1,30.86],
+        "汕头":[116.69,23.39],
+        "昆山":[120.95,31.39],
+        "宁波":[121.56,29.86],
+        "湛江":[110.359377,21.270708],
+        "揭阳":[116.35,23.55],
+        "荣成":[122.41,37.16],
+        "连云港":[119.16,34.59],
+        "葫芦岛":[120.836932,40.711052],
+        "常熟":[120.74,31.64],
+        "东莞":[113.75,23.04],
+        "河源":[114.68,23.73],
+        "淮安":[119.15,33.5],
+        "泰州":[119.9,32.49],
+        "南宁":[108.33,22.84],
+        "营口":[122.18,40.65],
+        "惠州":[114.4,23.09],
+        "江阴":[120.26,31.91],
+        "蓬莱":[120.75,37.8],
+        "韶关":[113.62,24.84],
+        "嘉峪关":[98.289152,39.77313],
+        "广州":[113.23,23.16],
+        "延安":[109.47,36.6],
+        "太原":[112.53,37.87],
+        "清远":[113.01,23.7],
+        "中山":[113.38,22.52],
+        "昆明":[102.73,25.04],
+        "寿光":[118.73,36.86],
+        "盘锦":[122.070714,41.119997],
+        "长治":[113.08,36.18],
+        "深圳":[114.07,22.62],
+        "珠海":[113.52,22.3],
+        "宿迁":[118.3,33.96],
+        "咸阳":[108.72,34.36],
+        "铜川":[109.11,35.09],
+        "平度":[119.97,36.77],
+        "佛山":[113.11,23.05],
+        "海口":[110.35,20.02],
+        "江门":[113.06,22.61],
+        "章丘":[117.53,36.72],
+        "肇庆":[112.44,23.05],
+        "大连":[121.62,38.92],
+        "临汾":[111.5,36.08],
+        "吴江":[120.63,31.16],
+        "石嘴山":[106.39,39.04],
+        "沈阳":[123.38,41.8],
+        "苏州":[120.62,31.32],
+        "茂名":[110.88,21.68],
+        "嘉兴":[120.76,30.77],
+        "长春":[125.35,43.88],
+        "胶州":[120.03336,36.264622],
+        "银川":[106.27,38.47],
+        "张家港":[120.555821,31.875428],
+        "三门峡":[111.19,34.76],
+        "锦州":[121.15,41.13],
+        "南昌":[115.89,28.68],
+        "柳州":[109.4,24.33],
+        "三亚":[109.511909,18.252847],
+        "自贡":[104.778442,29.33903],
+        "吉林":[126.57,43.87],
+        "阳江":[111.95,21.85],
+        "泸州":[105.39,28.91],
+        "西宁":[101.74,36.56],
+        "宜宾":[104.56,29.77],
+        "呼和浩特":[111.65,40.82],
+        "成都":[104.06,30.67],
+        "大同":[113.3,40.12],
+        "镇江":[119.44,32.2],
+        "桂林":[110.28,25.29],
+        "张家界":[110.479191,29.117096],
+        "宜兴":[119.82,31.36],
+        "北海":[109.12,21.49],
+        "西安":[108.95,34.27],
+        "金坛":[119.56,31.74],
+        "东营":[118.49,37.46],
+        "牡丹江":[129.58,44.6],
+        "遵义":[106.9,27.7],
+        "绍兴":[120.58,30.01],
+        "扬州":[119.42,32.39],
+        "常州":[119.95,31.79],
+        "潍坊":[119.1,36.62],
+        "重庆":[106.54,29.59],
+        "台州":[121.420757,28.656386],
+        "南京":[118.78,32.04],
+        "滨州":[118.03,37.36],
+        "贵阳":[106.71,26.57],
+        "无锡":[120.29,31.59],
+        "本溪":[123.73,41.3],
+        "克拉玛依":[84.77,45.59],
+        "渭南":[109.5,34.52],
+        "马鞍山":[118.48,31.56],
+        "宝鸡":[107.15,34.38],
+        "焦作":[113.21,35.24],
+        "句容":[119.16,31.95],
+        "北京":[116.46,39.92],
+        "徐州":[117.2,34.26],
+        "衡水":[115.72,37.72],
+        "包头":[110,40.58],
+        "绵阳":[104.73,31.48],
+        "乌鲁木齐":[87.68,43.77],
+        "枣庄":[117.57,34.86],
+        "杭州":[120.19,30.26],
+        "淄博":[118.05,36.78],
+        "鞍山":[122.85,41.12],
+        "溧阳":[119.48,31.43],
+        "库尔勒":[86.06,41.68],
+        "安阳":[114.35,36.1],
+        "开封":[114.35,34.79],
+        "济南":[117,36.65],
+        "德阳":[104.37,31.13],
+        "温州":[120.65,28.01],
+        "九江":[115.97,29.71],
+        "邯郸":[114.47,36.6],
+        "临安":[119.72,30.23],
+        "兰州":[103.73,36.03],
+        "沧州":[116.83,38.33],
+        "临沂":[118.35,35.05],
+        "南充":[106.110698,30.837793],
+        "天津":[117.2,39.13],
+        "富阳":[119.95,30.07],
+        "泰安":[117.13,36.18],
+        "诸暨":[120.23,29.71],
+        "郑州":[113.65,34.76],
+        "哈尔滨":[126.63,45.75],
+        "聊城":[115.97,36.45],
+        "芜湖":[118.38,31.33],
+        "唐山":[118.02,39.63],
+        "平顶山":[113.29,33.75],
+        "邢台":[114.48,37.05],
+        "德州":[116.29,37.45],
+        "济宁":[116.59,35.38],
+        "荆州":[112.239741,30.335165],
+        "宜昌":[111.3,30.7],
+        "义乌":[120.06,29.32],
+        "丽水":[119.92,28.45],
+        "洛阳":[112.44,34.7],
+        "秦皇岛":[119.57,39.95],
+        "株洲":[113.16,27.83],
+        "石家庄":[114.48,38.03],
+        "莱芜":[117.67,36.19],
+        "常德":[111.69,29.05],
+        "保定":[115.48,38.85],
+        "湘潭":[112.91,27.87],
+        "金华":[119.64,29.12],
+        "岳阳":[113.09,29.37],
+        "长沙":[113,28.21],
+        "衢州":[118.88,28.97],
+        "廊坊":[116.7,39.53],
+        "菏泽":[115.480656,35.23375],
+        "合肥":[117.27,31.86],
+        "武汉":[114.31,30.52],
+        "大庆":[125.03,46.58]
+    };
+    // //城市数据
+    // const scatterVal = [
+    //
+    // ];
+    //数据转换，转换后的格式：[{name: 'cityName', value: [lng, lat, val]}, {...}]
+    const convertScatterData = function(data) {
+        let res = [];
+        for(let i=0;i<data.length;i++) {
+            let geoCoord = scatterGeo[data[i].name];
+            if(geoCoord) {
+                res.push({
+                    name: data[i].name,
+                    value: geoCoord.concat(data[i].value)
+                });
+            }
+        }
+        return res;
+    };
+    //地图配置项
+    $.get('http://127.0.0.1:5000/fraudinfouser', function (data) {
+        const sactterMapOpt = {
+            title: {
+                x: 'center',
+                textStyle: {
+                    color: '#7ea0d2'
+                }
+            },
+            legend: {
+                data: ['诈骗人员'], //与series的name属性对应
+                orient: 'vertical',
+                y: 'bottom',
+                x: 'right',
+                textStyle: {
+                    color: '#50a3ba'
+                }
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: function(params) {
+                    return params.name + ' : ' + params.value[2];
+                }
+            },
+            visualMap: {
+                min: 0,
+                max: 200,
+                calculable: true,
+                inRange: {
+                    color: ['#50a3ba', '#eac736', '#d94e5d']
+                },
+                textStyle: {
+                    color: '#fff'
+                }
+            },
+            geo: {
+                map: 'china',
+                roam: false, //开启鼠标缩放和漫游
+                // zoom: 1.3, //地图缩放级别
+                selectedMode: false, //选中模式：single | multiple
+                layoutCenter: ['50%', '50%'], //设置后left/right/top/bottom等属性无效
+                layoutSize: '100%',
+                label: {
+                    emphasis: {
+                        show: false
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        areaColor: '#fff',
+                        borderWidth: 1.1,
+                        borderColor: '#43d0d6'
+                    },
+                    emphasis: {
+                        areaColor: '#069'
+                    }
+                }
+            },
+            series: [
+            {
+                name: '诈骗人员',
+                type: 'scatter',
+                coordinateSystem: 'geo',
+                symbolSize: 12,
+                label: {
+                    normal: {
+                        show: false
+                    },
+                    emphasis: {
+                        show: false
+                    }
+                },
+                itemStyle: {
+                    emphasis: {
+                        borderColor: '#fff',
+                        borderWidth: 1
+                    }
+                },
+                data: convertScatterData(data.groupnumber)
+            }]
+        };
+        //渲染全国地图
+        scatterMap.setOption(sactterMapOpt);
+    }, 'json');
+</script>
+<!--地图-->
 
 </body>
 

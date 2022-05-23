@@ -652,7 +652,7 @@
                   <hr>
                   <div class="card">
                       <div class="card-body" style="width: 100%; height: 517px">
-                          <img src="assets/images/gallery/37.jpeg">
+                          <img src="assets/images/兼职01群体词云.jpg" style="height: 500px">
                       </div>
                   </div>
                 </div>
@@ -679,24 +679,70 @@
                        <table class="table align-middle">
                          <thead class="table-light">
                            <tr>
-                             <th>网络运营商</th>
-                             <th>浏览量PV</th>
-                             <th>独立用户UV</th>
-                             <th>访问次数VV</th>
-                             <th>独立IP</th>
-                             <th>跳出率</th>
-                             <th>平均在线时长</th>
+                             <th>用户ID</th>
+                             <th>IP所在地</th>
+                             <th>注册时间</th>
+                             <th>是否为活跃用户</th>
+                             <th>诈骗类型</th>
+                             <th>详情</th>
                            </tr>
                          </thead>
                          <tbody>
                            <tr>
-                             <td>电信</td>
-                             <td>20</td>
-                             <td>10</td>
-                             <td>39</td>
+                             <td>沙伯儿</td>
+                             <td>安徽</td>
+                             <td>2012-09-18</td>
+                             <td><span class="badge rounded-pill alert-info">活跃</span></td>
+                             <td><span class="badge rounded-pill alert-success">兼职类</span></td>
+                             <td>
+                              <div class="d-flex align-items-center gap-3 fs-6">
+                                <div class="col">
+                                  <button type="button" class="btn btn-outline-info font-13"><a href="analysis-portrait.html">用户画像</a></button>
+                                </div>
+                              </div>
+                             </td>
+                           </tr>
+                           <tr>
+                             <td>养Pig的MM</td>
                              <td>广东</td>
-                             <td>20.51%</td>
-                             <td>00:12:34</td>
+                             <td>2020-03-01</td>
+                             <td><span class="badge rounded-pill alert-info">活跃</span></td>
+                             <td><span class="badge rounded-pill alert-success">兼职类</span></td>
+                             <td>
+                              <div class="d-flex align-items-center gap-3 fs-6">
+                                <div class="col">
+                                  <button type="button" class="btn btn-outline-info font-13"><a href="analysis-portrait.html">用户画像</a></button>
+                                </div>
+                              </div>
+                             </td>
+                           </tr>
+                           <tr>
+                             <td>南湘ooo</td>
+                             <td>陕西</td>
+                             <td>2021-05-26</td>
+                             <td><span class="badge rounded-pill alert-danger">不活跃</span></td>
+                             <td><span class="badge rounded-pill alert-success">兼职类</span></td>
+                             <td>
+                              <div class="d-flex align-items-center gap-3 fs-6">
+                                <div class="col">
+                                  <button type="button" class="btn btn-outline-info font-13"><a href="analysis-portrait.html">用户画像</a></button>
+                                </div>
+                              </div>
+                             </td>
+                           </tr>
+                           <tr>
+                             <td>Xiu0-chen</td>
+                             <td>天津</td>
+                             <td>2022-01-23</td>
+                             <td><span class="badge rounded-pill alert-info">活跃</span></td>
+                             <td><span class="badge rounded-pill alert-success">兼职类</span></td>
+                             <td>
+                              <div class="d-flex align-items-center gap-3 fs-6">
+                                <div class="col">
+                                  <button type="button" class="btn btn-outline-info font-13"><a href="analysis-portrait.html">用户画像</a></button>
+                                </div>
+                              </div>
+                             </td>
                            </tr>
                          </tbody>
                        </table>
@@ -807,7 +853,7 @@
   <script src="assets/plugins/chartjs/js/Chart.extension.js"></script>
   <script src="assets/plugins/chartjs/js/chartjs-custom.js"></script>
   <script src="assets/plugins/apexcharts-bundle/js/apexcharts.min.js"></script>
-  <script src="assets/plugins/apexcharts-bundle/js/group-analyse.js"></script>
+  <script src="assets/js/group-analyse.js"></script>
   <!--app-->
   <script src="assets/js/app.js"></script>
 
@@ -1027,7 +1073,7 @@
         return res;
     };
     //地图配置项
-    $.get('http://127.0.0.1:5000/china-map', function (data) {
+    $.get('http://127.0.0.1:5000/groupanalysse-map', function (data) {
         const sactterMapOpt = {
             title: {
                 x: 'center',
@@ -1036,7 +1082,7 @@
                 }
             },
             legend: {
-                data: ['诈骗群体'], //与series的name属性对应
+                data: ['诈骗人员'], //与series的name属性对应
                 orient: 'vertical',
                 y: 'bottom',
                 x: 'right',
@@ -1086,7 +1132,7 @@
             },
             series: [
             {
-                name: '诈骗群体',
+                name: '诈骗人员',
                 type: 'scatter',
                 coordinateSystem: 'geo',
                 symbolSize: 12,
