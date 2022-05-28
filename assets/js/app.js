@@ -10,6 +10,16 @@ $(function() {
     })
 
 
+	// 限制表格文本长度
+   $(".info_content").each(function(){
+       let rname_str =  $(this).text();
+       // 最大显示字符数25，超出部分显示省略号
+       if(rname_str.length>25){
+          $(this).text(rname_str.substring(0, 25)+"...");
+          $(this).attr("title", rname_str);
+      }
+   });
+
 
     $(".nav-toggle-icon").on("click", function() {
 		$(".wrapper").toggleClass("toggled")
