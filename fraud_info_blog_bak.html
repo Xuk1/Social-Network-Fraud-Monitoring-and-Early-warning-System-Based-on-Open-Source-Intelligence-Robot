@@ -16,7 +16,7 @@
     <link href="assets/css/style.css" rel="stylesheet"/>
     <link href="assets/css/icons.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">-->
+    <!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">-->
     <link rel="stylesheet" href="assets/icons-1.8.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/layui/css/layui.css" media="all">
 
@@ -31,13 +31,7 @@
     <link href="assets/css/header-colors.css" rel="stylesheet"/>
 
     <title>诈骗信息列表</title>
-    <style>
-            td {
-      white-space:nowrap;  /* 设置文字在一行显示，不能换行 */
-      overflow: hidden;    /* 文字长度超出限定宽度，则隐藏超出的内容 */
-      text-overflow: ellipsis;/* 规定当文本溢出时，显示省略符号来代表被修剪的文本 */
-    }
-    </style>
+
 </head>
 
 <body>
@@ -876,7 +870,7 @@
         <div clas="card">
             <div class="card-body">
                 <div class="d-flex align-items-center">
-<!--                    <h4 class="mb-0">机器人列表</h4>-->
+                    <!--                    <h4 class="mb-0">机器人列表</h4>-->
                     <form class="ms-auto position-relative">
                         <div class="position-absolute top-50 translate-middle-y search-icon px-3"><i
                                 class="bi bi-search"></i></div>
@@ -884,273 +878,248 @@
                     </form>
                 </div>
                 <div class="table-responsive mt-3">
-                    <table id="demo" lay-filter="test"></table>
-                    <script src="assets/layui/layui.js"></script>
-<script>
-layui.use('table', function(){
-  var table = layui.table;
-
-  //第一个实例
-  table.render({
-    elem: '#demo'
-    ,height: 312
-    ,url: '../../demo/table/user/-page=1&limit=30.js' //数据接口
-    ,page: true //开启分页
-    ,cols: [[ //表头
-      {field: 'id', title: 'ID', width:80, sort: true, fixed: 'left'}
-      ,{field: 'username', title: '用户名', width:80}
-      ,{field: 'sex', title: '性别', width:80, sort: true}
-      ,{field: 'city', title: '城市', width:80}
-      ,{field: 'sign', title: '签名', width: 177}
-      ,{field: 'experience', title: '积分', width: 80, sort: true}
-      ,{field: 'score', title: '评分', width: 80, sort: true}
-      ,{field: 'classify', title: '职业', width: 80}
-      ,{field: 'wealth', title: '财富', width: 135, sort: true}
-    ]]
-  });
-
-});
-</script>
-<!--                    <table class="table align-middle table-hover">-->
-<!--                        <thead class="table-light">-->
-<!--                        <tr>-->
-<!--                            <th>#</th>-->
-<!--                            <th>用户id</th>-->
-<!--                            <th>诈骗类型</th>-->
-<!--                            <th>时间</th>-->
-<!--                            <th>IP地址</th>-->
-<!--                            <th>内容</th>-->
-<!--                            <th>操作</th>-->
-<!--                        </tr>-->
-<!--                        </thead>-->
-<!--                        <tbody>-->
-<!--                        <tr>-->
-<!--                            <td>1</td>-->
-<!--                            <td>627947</td>-->
-<!--                            <td><span class="badge rounded-pill alert-success">兼职诈骗</span></td>-->
-<!--                            <td>2022-05-07</td>-->
-<!--                            <td>安徽</td>-->
-<!--                            &lt;!&ndash;                            todo 需要限制文本长度&ndash;&gt;-->
-<!--                            <td class="info_content">有本事的人在为自己的成功而忙，没本事的人在为别人的成功而忙；有本事的人把自己变成别人的成本，没本事的人把自己变成别人的利润，没有项目兼職能不能推荐下[鲜花]-->
-<!--（扌区）995559063-->
-<!--（扌区）1360084083 ​​​</td>-->
-<!--                            <td>-->
-<!--                                <div class="d-flex align-items-center gap-3 fs-6">-->
-<!--                                    <a href="fraud_info_brodcast.html" class="text-primary" data-bs-toggle="tooltip"-->
-<!--                                       data-bs-placement="bottom" title="" data-bs-original-title="View detail"-->
-<!--                                       aria-label="Views"><i class="bi bi-caret-right-square-fill"></i></a>-->
-<!--                                    <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip"-->
-<!--                                       data-bs-placement="bottom" title="" data-bs-original-title="Edit info"-->
-<!--                                       aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>-->
-<!--                                    <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip"-->
-<!--                                       data-bs-placement="bottom" title="" data-bs-original-title="Delete"-->
-<!--                                       aria-label="Delete"><i class="bi bi-trash-fill"></i></a>-->
-<!--                                </div>-->
-<!--                            </td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>2</td>-->
-<!--                            <td>427937</td>-->
-<!--                            <td><span class="badge rounded-pill alert-success">其他诈骗</span></td>-->
-<!--                            <td>2022-05-06</td>-->
-<!--                            <td>广东</td>-->
-<!--                            <td  class="info_content">@-MCTinG: 需要嫲烦善良的路人邦忙！䒸/癌让我娃儿哭泣了无数次，我不想再看到他哭泣了！-->
-<!--                            </td>-->
-<!--                            <td>-->
-<!--                                <div class="d-flex align-items-center gap-3 fs-6">-->
-<!--                                    <a href="fraud_info_brodcast.html" class="text-primary" data-bs-toggle="tooltip"-->
-<!--                                       data-bs-placement="bottom" title="" data-bs-original-title="View detail"-->
-<!--                                       aria-label="Views"><i class="bi bi-caret-right-square-fill"></i></a>-->
-<!--                                    <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip"-->
-<!--                                       data-bs-placement="bottom" title="" data-bs-original-title="Edit info"-->
-<!--                                       aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>-->
-<!--                                    <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip"-->
-<!--                                       data-bs-placement="bottom" title="" data-bs-original-title="Delete"-->
-<!--                                       aria-label="Delete"><i class="bi bi-trash-fill"></i></a>-->
-<!--                                </div>-->
-<!--                            </td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>3</td>-->
-<!--                            <td>627937</td>-->
-<!--                            <td><span class="badge rounded-pill alert-success">博彩诈骗</span></td>-->
-<!--                            <td>2022-05-07</td>-->
-<!--                            <td>四川</td>-->
-<!--                            &lt;!&ndash;                            todo 需要限制文本长度&ndash;&gt;-->
-<!--                            <td  class="info_content">@TimberRita: 全员拿下看好的已经下驻了就等收米陪率还高</td>-->
-<!--                            <td>-->
-<!--                                <div class="d-flex align-items-center gap-3 fs-6">-->
-<!--                                    <a href="fraud_info_brodcast.html" class="text-primary" data-bs-toggle="tooltip"-->
-<!--                                       data-bs-placement="bottom" title="" data-bs-original-title="View detail"-->
-<!--                                       aria-label="Views"><i class="bi bi-caret-right-square-fill"></i></a>-->
-<!--                                    <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip"-->
-<!--                                       data-bs-placement="bottom" title="" data-bs-original-title="Edit info"-->
-<!--                                       aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>-->
-<!--                                    <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip"-->
-<!--                                       data-bs-placement="bottom" title="" data-bs-original-title="Delete"-->
-<!--                                       aria-label="Delete"><i class="bi bi-trash-fill"></i></a>-->
-<!--                                </div>-->
-<!--                            </td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>4</td>-->
-<!--                            <td>274793</td>-->
-<!--                            <td><span class="badge rounded-pill alert-success">兼职诈骗</span></td>-->
-<!--                            <td>2022-05-10</td>-->
-<!--                            <td>福建</td>-->
-<!--                            <td  class="info_content">#配音圈##配音圈##宝妈兼职##配音#找配音员欢迎一天120～600左右的工作。年龄23岁以上，有人想来试试吗？虽然不多，但安全可靠，实实在在的，想试试报名的私信我噢副业兼职#找工作#深圳-->
-<!--                            </td>-->
-<!--                            <td>-->
-<!--                                <div class="d-flex align-items-center gap-3 fs-6">-->
-<!--                                    <a href="fraud_info_brodcast.html" class="text-primary" data-bs-toggle="tooltip"-->
-<!--                                       data-bs-placement="bottom" title="" data-bs-original-title="View detail"-->
-<!--                                       aria-label="Views"><i class="bi bi-caret-right-square-fill"></i></a>-->
-<!--                                    <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip"-->
-<!--                                       data-bs-placement="bottom" title="" data-bs-original-title="Edit info"-->
-<!--                                       aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>-->
-<!--                                    <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip"-->
-<!--                                       data-bs-placement="bottom" title="" data-bs-original-title="Delete"-->
-<!--                                       aria-label="Delete"><i class="bi bi-trash-fill"></i></a>-->
-<!--                                </div>-->
-<!--                            </td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>5</td>-->
-<!--                            <td>691337</td>-->
-<!--                            <td><span class="badge rounded-pill alert-success">兼职诈骗</span></td>-->
-<!--                            <td>2022-05-10</td>-->
-<!--                            <td>天津</td>-->
-<!--                            <td  class="info_content">#天津兼职#招工了在家线上工作人员一小时30左右不限有点少但至少安全长久，实实在在的，男女不限想了解的宝可以私-->
-<!--                            </td>-->
-<!--                            <td>-->
-<!--                                <div class="d-flex align-items-center gap-3 fs-6">-->
-<!--                                    <a href="fraud_info_brodcast.html" class="text-primary" data-bs-toggle="tooltip"-->
-<!--                                       data-bs-placement="bottom" title="" data-bs-original-title="View detail"-->
-<!--                                       aria-label="Views"><i class="bi bi-caret-right-square-fill"></i></a>-->
-<!--                                    <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip"-->
-<!--                                       data-bs-placement="bottom" title="" data-bs-original-title="Edit info"-->
-<!--                                       aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>-->
-<!--                                    <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip"-->
-<!--                                       data-bs-placement="bottom" title="" data-bs-original-title="Delete"-->
-<!--                                       aria-label="Delete"><i class="bi bi-trash-fill"></i></a>-->
-<!--                                </div>-->
-<!--                            </td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>6</td>-->
-<!--                            <td>701203</td>-->
-<!--                            <td><span class="badge rounded-pill alert-success">兼职诈骗</span></td>-->
-<!--                            <td>2022-05-10</td>-->
-<!--                            <td>广州</td>-->
-<!--                            <td  class="info_content">（冦）7067047（裙）980042773想在家就能做的項目兼職加！曾有人说：“泼在你身上的冷水，你应该烧开了泼回去。”但我更愿意去做像石灰一样的人，别人越泼我冷水，我的人生越沸腾！-->
-<!--                            </td>-->
-<!--                            <td>-->
-<!--                                <div class="d-flex align-items-center gap-3 fs-6">-->
-<!--                                    <a href="fraud_info_brodcast.html" class="text-primary" data-bs-toggle="tooltip"-->
-<!--                                       data-bs-placement="bottom" title="" data-bs-original-title="View detail"-->
-<!--                                       aria-label="Views"><i class="bi bi-caret-right-square-fill"></i></a>-->
-<!--                                    <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip"-->
-<!--                                       data-bs-placement="bottom" title="" data-bs-original-title="Edit info"-->
-<!--                                       aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>-->
-<!--                                    <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip"-->
-<!--                                       data-bs-placement="bottom" title="" data-bs-original-title="Delete"-->
-<!--                                       aria-label="Delete"><i class="bi bi-trash-fill"></i></a>-->
-<!--                                </div>-->
-<!--                            </td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>7</td>-->
-<!--                            <td>937427</td>-->
-<!--                            <td><span class="badge rounded-pill alert-success">兼职诈骗</span></td>-->
-<!--                            <td>2022-05-10</td>-->
-<!--                            <td>太原</td>-->
-<!--                            <td  class="info_content">#太原兼职#招工了，居家可做，不限男女，一小时35左右，不嫌少，但至少真真实实，年龄要求23岁以上，想做的滴滴私我了解#太原兼职#-->
-<!--                            </td>-->
-<!--                            <td>-->
-<!--                                <div class="d-flex align-items-center gap-3 fs-6">-->
-<!--                                    <a href="fraud_info_brodcast.html" class="text-primary" data-bs-toggle="tooltip"-->
-<!--                                       data-bs-placement="bottom" title="" data-bs-original-title="View detail"-->
-<!--                                       aria-label="Views"><i class="bi bi-caret-right-square-fill"></i></a>-->
-<!--                                    <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip"-->
-<!--                                       data-bs-placement="bottom" title="" data-bs-original-title="Edit info"-->
-<!--                                       aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>-->
-<!--                                    <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip"-->
-<!--                                       data-bs-placement="bottom" title="" data-bs-original-title="Delete"-->
-<!--                                       aria-label="Delete"><i class="bi bi-trash-fill"></i></a>-->
-<!--                                </div>-->
-<!--                            </td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>8</td>-->
-<!--                            <td>837576</td>-->
-<!--                            <td><span class="badge rounded-pill alert-success">兼职诈骗</span></td>-->
-<!--                            <td>2022-05-10</td>-->
-<!--                            <td>太原</td>-->
-<!--                            <td  class="info_content">#兼职#招聘客服人员。男女不限，25-35一小时，时间自由简单又方便-->
-<!--                            </td>-->
-<!--                            <td>-->
-<!--                                <div class="d-flex align-items-center gap-3 fs-6">-->
-<!--                                    <a href="fraud_info_brodcast.html" class="text-primary" data-bs-toggle="tooltip"-->
-<!--                                       data-bs-placement="bottom" title="" data-bs-original-title="View detail"-->
-<!--                                       aria-label="Views"><i class="bi bi-caret-right-square-fill"></i></a>-->
-<!--                                    <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip"-->
-<!--                                       data-bs-placement="bottom" title="" data-bs-original-title="Edit info"-->
-<!--                                       aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>-->
-<!--                                    <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip"-->
-<!--                                       data-bs-placement="bottom" title="" data-bs-original-title="Delete"-->
-<!--                                       aria-label="Delete"><i class="bi bi-trash-fill"></i></a>-->
-<!--                                </div>-->
-<!--                            </td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>9</td>-->
-<!--                            <td>847266</td>-->
-<!--                            <td><span class="badge rounded-pill alert-success">赌博诈骗</span></td>-->
-<!--                            <td>2022-05-10</td>-->
-<!--                            <td>福建</td>-->
-<!--                            <td  class="info_content">真正让你走远的是NBA自律，积极，勤奋，坚信所有运气都藏着预测足蓝推介6裙-->
-<!--                            </td>-->
-<!--                            <td>-->
-<!--                                <div class="d-flex align-items-center gap-3 fs-6">-->
-<!--                                    <a href="fraud_info_brodcast.html" class="text-primary" data-bs-toggle="tooltip"-->
-<!--                                       data-bs-placement="bottom" title="" data-bs-original-title="View detail"-->
-<!--                                       aria-label="Views"><i class="bi bi-caret-right-square-fill"></i></a>-->
-<!--                                    <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip"-->
-<!--                                       data-bs-placement="bottom" title="" data-bs-original-title="Edit info"-->
-<!--                                       aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>-->
-<!--                                    <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip"-->
-<!--                                       data-bs-placement="bottom" title="" data-bs-original-title="Delete"-->
-<!--                                       aria-label="Delete"><i class="bi bi-trash-fill"></i></a>-->
-<!--                                </div>-->
-<!--                            </td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>10</td>-->
-<!--                            <td>575027</td>-->
-<!--                            <td><span class="badge rounded-pill alert-success">赌博诈骗</span></td>-->
-<!--                            <td>2022-05-10</td>-->
-<!--                            <td>北京</td>-->
-<!--                            <td  class="info_content">詹韦兄弟，佑哥，峰磊，部长。冯戴NBA，蓝神NBA，段冉，来我的主要看看都有，合开+jxa3321-->
-<!--                            </td>-->
-<!--                            <td>-->
-<!--                                <div class="d-flex align-items-center gap-3 fs-6">-->
-<!--                                    <a href="fraud_info_brodcast.html" class="text-primary" data-bs-toggle="tooltip"-->
-<!--                                       data-bs-placement="bottom" title="" data-bs-original-title="View detail"-->
-<!--                                       aria-label="Views"><i class="bi bi-caret-right-square-fill"></i></a>-->
-<!--                                    <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip"-->
-<!--                                       data-bs-placement="bottom" title="" data-bs-original-title="Edit info"-->
-<!--                                       aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>-->
-<!--                                    <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip"-->
-<!--                                       data-bs-placement="bottom" title="" data-bs-original-title="Delete"-->
-<!--                                       aria-label="Delete"><i class="bi bi-trash-fill"></i></a>-->
-<!--                                </div>-->
-<!--                            </td>-->
-<!--                        </tr>-->
-<!--                        </tbody>-->
-<!--                    </table>-->
+                    <table class="layui-hide" id="test" lay-filter="test"></table>
+                    <div>
+                                            <table class="table align-middle table-hover">
+                                                <thead class="table-light">
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>用户id</th>
+                                                    <th>诈骗类型</th>
+                                                    <th>时间</th>
+                                                    <th>IP地址</th>
+                                                    <th>内容</th>
+                                                    <th>操作</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>627947</td>
+                                                    <td><span class="badge rounded-pill alert-success">兼职诈骗</span></td>
+                                                    <td>2022-05-07</td>
+                                                    <td>安徽</td>
+                                                    <!--                            todo 需要限制文本长度-->
+                                                    <td class="info_content">有本事的人在为自己的成功而忙，没本事的人在为别人的成功而忙；有本事的人把自己变成别人的成本，没本事的人把自己变成别人的利润，没有项目兼職能不能推荐下[鲜花]
+                        （扌区）995559063
+                        （扌区）1360084083 ​​​</td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center gap-3 fs-6">
+                                                            <a href="fraud_info_brodcast.html" class="text-primary" data-bs-toggle="tooltip"
+                                                               data-bs-placement="bottom" title="" data-bs-original-title="View detail"
+                                                               aria-label="Views"><i class="bi bi-caret-right-square-fill"></i></a>
+                                                            <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip"
+                                                               data-bs-placement="bottom" title="" data-bs-original-title="Edit info"
+                                                               aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>
+                                                            <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip"
+                                                               data-bs-placement="bottom" title="" data-bs-original-title="Delete"
+                                                               aria-label="Delete"><i class="bi bi-trash-fill"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>427937</td>
+                                                    <td><span class="badge rounded-pill alert-success">其他诈骗</span></td>
+                                                    <td>2022-05-06</td>
+                                                    <td>广东</td>
+                                                    <td  class="info_content">@-MCTinG: 需要嫲烦善良的路人邦忙！䒸/癌让我娃儿哭泣了无数次，我不想再看到他哭泣了！
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center gap-3 fs-6">
+                                                            <a href="fraud_info_brodcast.html" class="text-primary" data-bs-toggle="tooltip"
+                                                               data-bs-placement="bottom" title="" data-bs-original-title="View detail"
+                                                               aria-label="Views"><i class="bi bi-caret-right-square-fill"></i></a>
+                                                            <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip"
+                                                               data-bs-placement="bottom" title="" data-bs-original-title="Edit info"
+                                                               aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>
+                                                            <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip"
+                                                               data-bs-placement="bottom" title="" data-bs-original-title="Delete"
+                                                               aria-label="Delete"><i class="bi bi-trash-fill"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td>627937</td>
+                                                    <td><span class="badge rounded-pill alert-success">博彩诈骗</span></td>
+                                                    <td>2022-05-07</td>
+                                                    <td>四川</td>
+                                                    <!--                            todo 需要限制文本长度-->
+                                                    <td  class="info_content">@TimberRita: 全员拿下看好的已经下驻了就等收米陪率还高</td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center gap-3 fs-6">
+                                                            <a href="fraud_info_brodcast.html" class="text-primary" data-bs-toggle="tooltip"
+                                                               data-bs-placement="bottom" title="" data-bs-original-title="View detail"
+                                                               aria-label="Views"><i class="bi bi-caret-right-square-fill"></i></a>
+                                                            <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip"
+                                                               data-bs-placement="bottom" title="" data-bs-original-title="Edit info"
+                                                               aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>
+                                                            <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip"
+                                                               data-bs-placement="bottom" title="" data-bs-original-title="Delete"
+                                                               aria-label="Delete"><i class="bi bi-trash-fill"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4</td>
+                                                    <td>274793</td>
+                                                    <td><span class="badge rounded-pill alert-success">兼职诈骗</span></td>
+                                                    <td>2022-05-10</td>
+                                                    <td>福建</td>
+                                                    <td  class="info_content">#配音圈##配音圈##宝妈兼职##配音#找配音员欢迎一天120～600左右的工作。年龄23岁以上，有人想来试试吗？虽然不多，但安全可靠，实实在在的，想试试报名的私信我噢副业兼职#找工作#深圳
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center gap-3 fs-6">
+                                                            <a href="fraud_info_brodcast.html" class="text-primary" data-bs-toggle="tooltip"
+                                                               data-bs-placement="bottom" title="" data-bs-original-title="View detail"
+                                                               aria-label="Views"><i class="bi bi-caret-right-square-fill"></i></a>
+                                                            <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip"
+                                                               data-bs-placement="bottom" title="" data-bs-original-title="Edit info"
+                                                               aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>
+                                                            <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip"
+                                                               data-bs-placement="bottom" title="" data-bs-original-title="Delete"
+                                                               aria-label="Delete"><i class="bi bi-trash-fill"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>5</td>
+                                                    <td>691337</td>
+                                                    <td><span class="badge rounded-pill alert-success">兼职诈骗</span></td>
+                                                    <td>2022-05-10</td>
+                                                    <td>天津</td>
+                                                    <td  class="info_content">#天津兼职#招工了在家线上工作人员一小时30左右不限有点少但至少安全长久，实实在在的，男女不限想了解的宝可以私
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center gap-3 fs-6">
+                                                            <a href="fraud_info_brodcast.html" class="text-primary" data-bs-toggle="tooltip"
+                                                               data-bs-placement="bottom" title="" data-bs-original-title="View detail"
+                                                               aria-label="Views"><i class="bi bi-caret-right-square-fill"></i></a>
+                                                            <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip"
+                                                               data-bs-placement="bottom" title="" data-bs-original-title="Edit info"
+                                                               aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>
+                                                            <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip"
+                                                               data-bs-placement="bottom" title="" data-bs-original-title="Delete"
+                                                               aria-label="Delete"><i class="bi bi-trash-fill"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>6</td>
+                                                    <td>701203</td>
+                                                    <td><span class="badge rounded-pill alert-success">兼职诈骗</span></td>
+                                                    <td>2022-05-10</td>
+                                                    <td>广州</td>
+                                                    <td  class="info_content">（冦）7067047（裙）980042773想在家就能做的項目兼職加！曾有人说：“泼在你身上的冷水，你应该烧开了泼回去。”但我更愿意去做像石灰一样的人，别人越泼我冷水，我的人生越沸腾！
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center gap-3 fs-6">
+                                                            <a href="fraud_info_brodcast.html" class="text-primary" data-bs-toggle="tooltip"
+                                                               data-bs-placement="bottom" title="" data-bs-original-title="View detail"
+                                                               aria-label="Views"><i class="bi bi-caret-right-square-fill"></i></a>
+                                                            <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip"
+                                                               data-bs-placement="bottom" title="" data-bs-original-title="Edit info"
+                                                               aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>
+                                                            <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip"
+                                                               data-bs-placement="bottom" title="" data-bs-original-title="Delete"
+                                                               aria-label="Delete"><i class="bi bi-trash-fill"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>7</td>
+                                                    <td>937427</td>
+                                                    <td><span class="badge rounded-pill alert-success">兼职诈骗</span></td>
+                                                    <td>2022-05-10</td>
+                                                    <td>太原</td>
+                                                    <td  class="info_content">#太原兼职#招工了，居家可做，不限男女，一小时35左右，不嫌少，但至少真真实实，年龄要求23岁以上，想做的滴滴私我了解#太原兼职#
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center gap-3 fs-6">
+                                                            <a href="fraud_info_brodcast.html" class="text-primary" data-bs-toggle="tooltip"
+                                                               data-bs-placement="bottom" title="" data-bs-original-title="View detail"
+                                                               aria-label="Views"><i class="bi bi-caret-right-square-fill"></i></a>
+                                                            <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip"
+                                                               data-bs-placement="bottom" title="" data-bs-original-title="Edit info"
+                                                               aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>
+                                                            <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip"
+                                                               data-bs-placement="bottom" title="" data-bs-original-title="Delete"
+                                                               aria-label="Delete"><i class="bi bi-trash-fill"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>8</td>
+                                                    <td>837576</td>
+                                                    <td><span class="badge rounded-pill alert-success">兼职诈骗</span></td>
+                                                    <td>2022-05-10</td>
+                                                    <td>太原</td>
+                                                    <td  class="info_content">#兼职#招聘客服人员。男女不限，25-35一小时，时间自由简单又方便
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center gap-3 fs-6">
+                                                            <a href="fraud_info_brodcast.html" class="text-primary" data-bs-toggle="tooltip"
+                                                               data-bs-placement="bottom" title="" data-bs-original-title="View detail"
+                                                               aria-label="Views"><i class="bi bi-caret-right-square-fill"></i></a>
+                                                            <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip"
+                                                               data-bs-placement="bottom" title="" data-bs-original-title="Edit info"
+                                                               aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>
+                                                            <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip"
+                                                               data-bs-placement="bottom" title="" data-bs-original-title="Delete"
+                                                               aria-label="Delete"><i class="bi bi-trash-fill"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>9</td>
+                                                    <td>847266</td>
+                                                    <td><span class="badge rounded-pill alert-success">赌博诈骗</span></td>
+                                                    <td>2022-05-10</td>
+                                                    <td>福建</td>
+                                                    <td  class="info_content">真正让你走远的是NBA自律，积极，勤奋，坚信所有运气都藏着预测足蓝推介6裙
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center gap-3 fs-6">
+                                                            <a href="fraud_info_brodcast.html" class="text-primary" data-bs-toggle="tooltip"
+                                                               data-bs-placement="bottom" title="" data-bs-original-title="View detail"
+                                                               aria-label="Views"><i class="bi bi-caret-right-square-fill"></i></a>
+                                                            <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip"
+                                                               data-bs-placement="bottom" title="" data-bs-original-title="Edit info"
+                                                               aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>
+                                                            <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip"
+                                                               data-bs-placement="bottom" title="" data-bs-original-title="Delete"
+                                                               aria-label="Delete"><i class="bi bi-trash-fill"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>10</td>
+                                                    <td>575027</td>
+                                                    <td><span class="badge rounded-pill alert-success">赌博诈骗</span></td>
+                                                    <td>2022-05-10</td>
+                                                    <td>北京</td>
+                                                    <td  class="info_content">詹韦兄弟，佑哥，峰磊，部长。冯戴NBA，蓝神NBA，段冉，来我的主要看看都有，合开+jxa3321
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center gap-3 fs-6">
+                                                            <a href="fraud_info_brodcast.html" class="text-primary" data-bs-toggle="tooltip"
+                                                               data-bs-placement="bottom" title="" data-bs-original-title="View detail"
+                                                               aria-label="Views"><i class="bi bi-caret-right-square-fill"></i></a>
+                                                            <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip"
+                                                               data-bs-placement="bottom" title="" data-bs-original-title="Edit info"
+                                                               aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>
+                                                            <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip"
+                                                               data-bs-placement="bottom" title="" data-bs-original-title="Delete"
+                                                               aria-label="Delete"><i class="bi bi-trash-fill"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                    </div>
                 </div>
                 <div>
-
                     <nav aria-label="Page navigation">
                         <ul class="pagination">
                             <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
@@ -1273,6 +1242,7 @@ layui.use('table', function(){
 
 <!--app-->
 <script src="assets/js/app.js"></script>
+<script src="assets/layui/layui.js"></script>
 
 
 <script>
