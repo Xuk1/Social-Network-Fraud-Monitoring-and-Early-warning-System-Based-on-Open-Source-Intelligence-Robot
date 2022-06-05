@@ -797,6 +797,24 @@ def spider_info():
     return Response(json.dumps(return_data), mimetype='application/json')
 
 
+@app.route('/fraud_user_list/')
+def fraud_user_list():
+    page = request.args.get('page')
+    limit = request.args.get('limit')
+    data = get_fraud_user_list(page, limit)
+    length = len(data)
+    print(data)
+    return_data = {
+        "code": 0,
+        "msg": "",
+        "count": 1200,
+        "data": data
+    }
+    print(return_data)
+    return Response(json.dumps(return_data), mimetype='application/json')
+
+
+
 
 if __name__ == '__main__':
     app.run()
