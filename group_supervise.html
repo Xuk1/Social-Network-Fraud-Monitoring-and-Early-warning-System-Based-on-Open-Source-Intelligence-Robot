@@ -856,11 +856,102 @@
   <script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
   <script src="assets/plugins/chartjs/js/Chart.min.js"></script>
   <script src="assets/plugins/chartjs/js/Chart.extension.js"></script>
-  <script src="assets/plugins/chartjs/js/group.js"></script>
+<!--  <script src="assets/plugins/chartjs/js/group.js"></script>-->
   <script src="assets/js/pace.min.js"></script>
   <!--app-->
   <script src="assets/js/app.js"></script>
+  <script>
+      // chart 1
+      function getDate(num){
+		var date = new Date();
+		date.setDate(date.getDate() + num)
+		//当使用setDate()之后，date对象就发生了改变，所以之后getDate()就能获取到指定的日期
+		//这里的num就是你要加的天数，减也可以。
+		let year = date.getFullYear()				//年
+		let month = date.getMonth() + 1				//月
+		let day = date.getDate();					//天数
+		if(month >= 1 && month <= 9) {
+			month = `0${month}`
+		}
+		if(day >= 1 && day <= 9) {
+			day = `0${day}`
+		}
+		return `${year}-${month}-${day}`
+	}
+	var ctx = document.getElementById('chart1').getContext('2d');
+	var myChart = new Chart(ctx, {
+		type: 'line',
+		data: {
+			labels: [getDate(-6), getDate(-5), getDate(-4), getDate(-3), getDate(-2), getDate(-1), getDate(0)],
+			datasets: [{
+				label: '博彩',
+				data: [140, 107, 216, 253, 198, 218, 280],
+				backgroundColor: "transparent",
+				borderColor: "#3461ff",
+				pointRadius: "0",
+				borderWidth: 4
+			}, {
+				label: '兼职',
+				data: [400, 370, 564, 642, 657, 548, 567],
+				backgroundColor: "transparent",
+				borderColor: "#0c971a",
+				pointRadius: "0",
+				borderWidth: 4
+			},{
+				label: '色情',
+				data: [518, 439, 358, 440, 555, 560, 499],
+				backgroundColor: "transparent",
+				borderColor: "#ffea00",
+				pointRadius: "0",
+				borderWidth: 4
+			},{
+				label: '私聊',
+				data: [465, 522, 645, 570, 689, 646, 668],
+				backgroundColor: "transparent",
+				borderColor: "#ff0900",
+				pointRadius: "0",
+				borderWidth: 4
+			}]
+		},
+		options: {
+			maintainAspectRatio: false,
+			legend: {
+				display: true,
+				labels: {
+					fontColor: '#585757',
+					boxWidth: 20
+				}
+			},
+			tooltips: {
+				enabled: false
+			},
+			scales: {
+				xAxes: [{
+					ticks: {
+						beginAtZero: true,
+						fontColor: '#585757'
+					},
+					gridLines: {
+						display: true,
+						color: "rgba(0, 0, 0, 0.07)"
+					},
 
+				}],
+
+				yAxes: [{
+					ticks: {
+						beginAtZero: true,
+						fontColor: '#585757'
+					},
+					gridLines: {
+						display: true,
+						color: "rgba(0, 0, 0, 0.07)"
+					},
+				}]
+			}
+		}
+	});
+  </script>
 
 </body>
 

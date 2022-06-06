@@ -1015,7 +1015,22 @@
 
 
 <script>
-
+function getDate(num){
+		var date = new Date();
+		date.setDate(date.getDate() + num)
+		//当使用setDate()之后，date对象就发生了改变，所以之后getDate()就能获取到指定的日期
+		//这里的num就是你要加的天数，减也可以。
+		let year = date.getFullYear()				//年
+		let month = date.getMonth() + 1				//月
+		let day = date.getDate();					//天数
+		if(month >= 1 && month <= 9) {
+			month = `0${month}`
+		}
+		if(day >= 1 && day <= 9) {
+			day = `0${day}`
+		}
+		return `${year}-${month}-${day}`
+	}
     //<!--一周内诈骗数量-->
     var options = {
         series: [{
@@ -1085,7 +1100,7 @@
         },
         colors: ["#3361ff"],
         xaxis: {
-            categories: ["一", "二", "三", "四", "五", "六", "七"]
+            categories: [getDate(-6), getDate(-5), getDate(-4), getDate(-3), getDate(-2), getDate(-1), getDate(0)],
         },
         responsive: [
             {

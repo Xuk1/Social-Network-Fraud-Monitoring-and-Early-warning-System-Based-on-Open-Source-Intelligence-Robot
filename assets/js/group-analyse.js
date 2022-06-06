@@ -71,7 +71,22 @@ $(function () {
 	var chart = new ApexCharts(document.querySelector("#chart1"), options);
 	chart.render();
 
-
+	function getDate(num){
+		var date = new Date();
+		date.setDate(date.getDate() + num)
+		//当使用setDate()之后，date对象就发生了改变，所以之后getDate()就能获取到指定的日期
+		//这里的num就是你要加的天数，减也可以。
+		let year = date.getFullYear()				//年
+		let month = date.getMonth() + 1				//月
+		let day = date.getDate();					//天数
+		if(month >= 1 && month <= 9) {
+			month = `0${month}`
+		}
+		if(day >= 1 && day <= 9) {
+			day = `0${day}`
+		}
+		return `${year}-${month}-${day}`
+	}
 	// chart 2
 	var optionsLine = {
 		chart: {
@@ -97,25 +112,7 @@ $(function () {
 		series: [{
 			name: "兼职类01",
 			data: [1, 15, 56, 20, 33, 27, 15, 56, 20, 56]
-		}, {
-			name: "兼职类02",
-			data: [30, 33, 21, 42, 30, 33, 21, 42, 19, 32]
-		}, {
-			name: "色情类01",
-			data: [1, 2, 3, 7, 20, 27, 15, 56, 20, 56]
-		}, {
-			name: "色情类02",
-			data: [27, 15, 56, 20, 56, 1, 15, 56, 20, 33]
-		}, {
-			name: "赌博类01",
-			data: [1, 3, 5, 10, 18, 20, 18, 19, 5, 1]
-		}, {
-			name: "其他类01",
-			data: [1, 7, 10, 20, 25, 27, 10, 5, 6, 8]
-		}, {
-			name: "其他类02",
-			data: [0, 4, 3, 25, 63, 32, 15, 56, 10, 6]
-		}, ],
+		}],
 		title: {
 			text: '群体诈骗信息发布趋势',
 			align: 'center',
@@ -143,7 +140,7 @@ $(function () {
 		//labels: ['01/15/2002', '01/16/2002', '01/17/2002', '01/18/2002', '01/19/2002', '01/20/2002'],
 		xaxis: {
 			//type: 'datetime',
-			categories: ['2013', '204', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022'],
+			categories: [getDate(-9),getDate(-8),getDate(-7),getDate(-6), getDate(-5), getDate(-4), getDate(-3), getDate(-2), getDate(-1), getDate(0)],
 		},
 		legend: {
 			position: 'top',

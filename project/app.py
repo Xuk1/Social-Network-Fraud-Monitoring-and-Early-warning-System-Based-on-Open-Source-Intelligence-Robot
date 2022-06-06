@@ -13,14 +13,14 @@ CORS(app)
 @app.route('/lefttoday_number/')
 def lefttoday_number():  # put application's code here
     t = {
-        'WeiboNumber': 10000,
+        'WeiboNumber': 12810,
         'WeiboNumberIncreaseRatio': 10,
-        'InformationNumber': 200,
+        'InformationNumber': 248,
         'InformationNumberIncreaseRatio': 5,
-        'PeopleNumber': 292,
-        'PeopleNumberIncreaseRatio': 29,
-        'GroupNumber': 29,
-        'GroupNumberIncreaseRatio': 31,
+        'PeopleNumber': 212,
+        'PeopleNumberIncreaseRatio': 9,
+        'GroupNumber': 11,
+        'GroupNumberIncreaseRatio': 32,
     }
     return Response(json.dumps(t), mimetype='application/json')
 
