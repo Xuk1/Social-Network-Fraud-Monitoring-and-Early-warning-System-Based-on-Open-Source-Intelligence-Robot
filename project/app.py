@@ -29,11 +29,10 @@ def lefttoday_number():  # put application's code here
 def pleftbox2top():  # put application's code here
     t = {
         "data_pie": [
-            {"value": 235, "name": "刷单类"},
-            {"value": 274, "name": "虚假购物类"},
-            {"value": 310, "name": "裸聊类"},
-            {"value": 335, "name": "虚假筹款类"},
-            {"value": 400, "name": "其他"}
+            {"value": 235, "name": "博彩诈骗"},
+            {"value": 474, "name": "兼职诈骗"},
+            {"value": 110, "name": "色情诈骗"},
+            {"value": 42, "name": "其他"}
         ]
     }
     return Response(json.dumps(t), mimetype='application/json')
@@ -68,11 +67,10 @@ def fraudMessage():
 def fraudkeyword():  # put application's code here
     t = {
         "data_pie": [
-            {"value": 54, "name": "赚钱"},
+            {"value": 54, "name": "其他"},
             {"value": 526, "name": "博彩"},
             {"value": 3857, "name": "兼职"},
-            {"value": 335, "name": "婚恋"},
-            {"value": 400, "name": "其他"}
+            {"value": 400, "name": "色情"}
         ]
     }
     return Response(json.dumps(t), mimetype='application/json')

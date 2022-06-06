@@ -1,7 +1,7 @@
 ﻿<!doctype html>
 <meta charset="utf-8">
 <title>数量统计</title>
-<link href="css/style.css"  rel="stylesheet" type="text/css" media="all" />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
 <script src="js/echarts.min.js" charset="utf-8"></script>
 <script src="js/vue.js" charset="utf-8"></script>
 <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
@@ -9,680 +9,215 @@
 
 <body>
 <div class="bnt">
-  <div class="topbnt_left fl">
-   <ul>
-       <li><a href="management.html">后台管理</a></li>
-       <li><a href="spider.html">社区发现</a></li>
-       <li class="active"><a href="analysis.html">数量统计</a></li>
-   </ul>
-  </div>
-  <h1 class="tith1 fl">数量统计</h1>
-  <div class="fr topbnt_right">
-  </div>
+    <div class="topbnt_left fl">
+        <ul>
+            <!--       <li><a href="management.html">后台管理</a></li>-->
+            <!--       <li><a href="spider.html">社区发现</a></li>-->
+            <li class="active"><a href="analysis.html">后台管理页面</a></li>
+        </ul>
+    </div>
+    <h1 class="tith1 fl">诈骗态势感知</h1>
+    <div class="fr topbnt_right">
+    </div>
 </div>
 <!-- bnt end -->
 <div class="left1 pleft1">
     <div class="lefttime"><h2 class="tith2">统计时间</h2>
-     <div class="lefttime_text">
-        <ul>
-          <li class="bg active">今日</li>
-          <li></li>
-          <li class="bg">本周</li>
-          <li></li>
-          <li class="bg">本月</li>
-          <li></li>
-          <li class="bg">本季</li>
-          <li></li>
-          <li class="bg">本年</li>
-        </ul>
-     </div>
+        <div class="lefttime_text">
+            <ul>
+                <li class="bg active">今日</li>
+                <li></li>
+                <li class="bg">本周</li>
+                <li></li>
+                <li class="bg">本月</li>
+                <li></li>
+                <li class="bg">本季</li>
+                <li></li>
+                <li class="bg">本年</li>
+            </ul>
+        </div>
     </div>
     <div class="plefttoday"><h2 class="tith2">数量统计</h2>
-    <div class="lefttoday_tit" style=" height:8%"><p class="fl">全国</p><p class="nowTime"></p></div>
-    <div class="lefttoday_number">
-      <div class="widget-inline-box text-center fl">
-        <p>爬取的微博数量</p>
-        <h3 class="ceeb1fd">{{ WeiboNumber }}</h3>
-        <h4 class="text-muted">环比<img src="img/iconup.png" height="16" />{{ WeiboNumberIncreaseRatio }}</h4>
-      </div>
-      <div class="widget-inline-box text-center fl">
-        <p>诈骗信息数量</p>
-        <h3 class="c24c9ff">{{ InformationNumber }}</h3>
-        <h4 class="text-muted">环比<img src="img/icondown.png" height="16" />{{ InformationNumberIncreaseRatio }}</h4>
-      </div>
-      <div class="widget-inline-box text-center fl">
-        <p>诈骗人员数量</p>
-        <h3 class="cffff00">{{ PeopleNumber }}</h3>
-        <h4 class="text-muted">环比<img src="img/icondown.png" height="16" />{{ PeopleNumberIncreaseRatio }}</h4>
-      </div>
-      <div class="widget-inline-box text-center fl">
-        <p>诈骗群体数量</p>
-        <h3 class="c11e2dd">{{ GroupNumber }}</h3>
-        <h4 class="text-muted">环比<img src="img/icondown.png" height="16" />{{ GroupNumberIncreaseRatio }}</h4>
-      </div>
-    </div>
-    <!-- lefttoday_number end -->
-    <!--  lefttoday_bar end-->
+        <div class="lefttoday_tit" style=" height:8%"><p class="fl">全国</p>
+            <p class="nowTime"></p></div>
+        <div class="lefttoday_number">
+            <div class="widget-inline-box text-center fl">
+                <p>爬取的微博数量</p>
+                <h3 class="ceeb1fd">{{ WeiboNumber }}</h3>
+                <h4 class="text-muted">环比<img src="img/iconup.png" height="16"/>{{ WeiboNumberIncreaseRatio }}</h4>
+            </div>
+            <div class="widget-inline-box text-center fl">
+                <p>诈骗信息数量</p>
+                <h3 class="c24c9ff">{{ InformationNumber }}</h3>
+                <h4 class="text-muted">环比<img src="img/icondown.png" height="16"/>{{ InformationNumberIncreaseRatio }}
+                </h4>
+            </div>
+            <div class="widget-inline-box text-center fl">
+                <p>诈骗人员数量</p>
+                <h3 class="cffff00">{{ PeopleNumber }}</h3>
+                <h4 class="text-muted">环比<img src="img/icondown.png" height="16"/>{{ PeopleNumberIncreaseRatio }}</h4>
+            </div>
+            <div class="widget-inline-box text-center fl">
+                <p>诈骗群体数量</p>
+                <h3 class="c11e2dd">{{ GroupNumber }}</h3>
+                <h4 class="text-muted">环比<img src="img/icondown.png" height="16"/>{{ GroupNumberIncreaseRatio }}</h4>
+            </div>
+        </div>
+        <!-- lefttoday_number end -->
+        <!--  lefttoday_bar end-->
     </div>
     <div class="lpeftmidbot">
-      <h2 class="tith2">同比增长</h2>
-      <div id="lpeftbot" class="lpeftmidbotcont"></div>
+        <h2 class="tith2">同比增长</h2>
+        <div id="lpeftbot" class="lpeftmidbotcont"></div>
     </div>
-    <div class="pleftbox2midd"><h2 class="tith2" >每周诈骗关键词</h2>
+    <div class="pleftbox2midd"><h2 class="tith2">每周诈骗关键词</h2>
         <div id="fraudkeyword" class="pleftbox2topcont2" style="position: center"></div>
     </div>
 </div>
 <!--  left1 end -->
-<div class="left2" >
-  <div class="pleftbox2top">
-    <h2 class="tith2">诈骗类型</h2>
-    <div id="pleftbox2top" class="pleftbox2topcont"></div>
-  </div>
+<div class="left2">
+    <div class="pleftbox2top">
+        <h2 class="tith2">诈骗类型</h2>
+        <div id="pleftbox2top" class="pleftbox2topcont"></div>
+    </div>
 
 </div>
 </div>
 <div class="mrbox prbox">
-      <div class="hdmrbox_top">
-          <div class="mrbox_top_midd">
-                <div class="hdmrboxtm-mbox"><h2 class="tith2 pt1">地图分析</h2>
-                    <div class="mrboxtm-map hdmrboxtm-map" id="chinamap"></div>
-          </div>
-          <div class="mrbox_bottom_bott">
+    <div class="hdmrbox_top">
+        <div class="mrbox_top_midd">
+            <div class="hdmrboxtm-mbox"><h2 class="tith2 pt1">地图分析</h2>
+                <div class="mrboxtm-map hdmrboxtm-map" id="chinamap"></div>
+            </div>
+            <div class="mrbox_bottom_bott">
                 <div class="rbottom_box1 hdwid"><h2 class="tith2">诈骗团体活动分析</h2>
-                <div id="prbottom_box2" class="prbottom_box1cont"></div></div>
+                    <div id="prbottom_box2" class="prbottom_box1cont"></div>
+                </div>
                 <div class="rbottom_box2 hdwid"><h2 class="tith2">诈骗人员分类统计</h2>
-                <div id="pleftbox2midd" class="prbottom_box1cont" ></div></div>
-          </div>
+                    <div id="pleftbox2midd" class="prbottom_box1cont"></div>
+                </div>
+            </div>
 
-          </div>
+        </div>
         <div class="mrbox_top_right">
-          <div class="hdrightboxtop"><h2 class="tith2">实时诈骗信息</h2>
-            <div class="lefttoday_tit" style="height:4%"><p class="fl">状态：已调节</p><p class="fr" id="now"></p></div>
-            <div class="left2_table hdleft2_table" id="fraudMessage">
-               <ul>
-                   <li v-for="(value, key) in object">
-                        <p><b>{{ key }}</b><br>
-                          {{ value }}<br>
-                        </p>
-                    </li>
-               </ul>
+            <div class="hdrightboxtop"><h2 class="tith2">实时诈骗信息</h2>
+                <div class="lefttoday_tit" style="height:4%"><p class="fl">状态：已调节</p>
+                    <p class="fr" id="now"></p></div>
+                <div class="left2_table hdleft2_table" id="fraudMessage">
+                    <ul>
+                        <li v-for="(value, key) in object">
+                            <p><b>{{ key }}</b><br>
+                                {{ value }}<br>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-</div>
 
 
-
-<script type="text/javascript">
-    var myChart = echarts.init(document.getElementById('pleftbox2midd'));
-    option = {
-      color:['#f8e19a','#00b7ee', '#5578cf', '#5ebbeb', '#d16ad8','#f8e19a',  '#00b7ee', '#81dabe','#5fc5ce'],
-        // backgroundColor: 'rgba(1,202,217,.2)',
-        grid: {
-                  left:20,
-                  right:20,
-                  top:0,
-                  bottom:20
+        <script type="text/javascript">
+            var myChart = echarts.init(document.getElementById('pleftbox2midd'));
+            option = {
+                color: ['#f8e19a', '#00b7ee', '#5578cf', '#5ebbeb', '#d16ad8', '#f8e19a', '#00b7ee', '#81dabe', '#5fc5ce'],
+                // backgroundColor: 'rgba(1,202,217,.2)',
+                grid: {
+                    left: 20,
+                    right: 20,
+                    top: 0,
+                    bottom: 20
                 },
                 legend: {
-                  top:10,
-                  textStyle:{
-                    fontSize: 10,
-                    color:'rgba(255,255,255,.7)'
-                  },
-                    data:['元老成员','新兴成员']
-                },
-                series : [
-         {
-             name: '访问来源',
-             type: 'pie',
-             radius : '55%',
-             center: ['50%', '65%'],
-             data:[
-               {value:335, name:'活跃用户'},
-               {value:310, name:'不活跃用户'}
-             ],
-             itemStyle: {
-                 emphasis: {
-                     shadowBlur: 10,
-                     shadowOffsetX: 0,
-                     shadowColor: 'rgba(0, 0, 0, 0.5)'
-                 }
-             }
-         }
-     ]
-    };
-    myChart.setOption(option);
-</script>
-<script type="text/javascript">
-    var myChart = echarts.init(document.getElementById('pmrboxbottom'));
-    option = {
-      color:['#d2d17c','#00b7ee', '#5578cf', '#5ebbeb', '#d16ad8','#f8e19a',  '#00b7ee', '#81dabe','#5fc5ce'],
-        // backgroundColor: 'rgba(1,202,217,.2)',
-        legend: {
-          top:10,
-          textStyle:{
-            fontSize: 10,
-            color:'rgba(255,255,255,.7)'
-          },
-              data:['涉恐人员','涉稳人员','涉毒人员','在逃人员','重点上访人员','肇事肇祸精神病人','刑事犯罪前科人员']
-          },
-          grid: {
-              left: 10,
-              right: 10,
-              top: 40,
-              bottom: 10,
-              containLabel: true
-          },
-
-          xAxis : [
-                 {
-                     type : 'category',
-                     axisLine:{
-                       lineStyle:{
-                         color:'rgba(255,255,255,.3)'
-                       }
-                     },
-                     splitLine:{
-                       lineStyle:{
-                         color:'rgba(255,255,255,.01)'
-                       }
-                     },
-                     data : ['康定市','泸定县','丹巴县','九龙县','新龙县','巴塘县','得荣县','理塘县','甘孜县','道孚县','德格县','色达县']
-                 }
-             ],
-          yAxis : [
-              {
-                axisLine:{
-                  lineStyle:{
-                    color:'rgba(255,255,255,.3)'
-                  }
-                },
-                splitLine:{
-                  lineStyle:{
-                    color:'rgba(255,255,255,.01)'
-                  }
-                },
-
-                axisLabel: {
-                    formatter: '{value} ml'
-                },
-                  type : 'value'
-              }
-
-          ],
-          series : [
-
-              {
-                  name:'涉恐人员',
-                  type:'bar',
-                  barWidth :30,
-                  stack: '搜索引擎',
-                  data:[620, 732, 701, 734, 1090, 1130, 1120,620, 732, 701, 734, 1090,]
-              },
-              {
-                  name:'涉稳人员',
-                  type:'bar',
-                  stack: '搜索引擎',
-                  data:[120, 132, 101, 134, 290, 230, 220, 101, 134, 290, 230, 220]
-              },
-              {
-                  name:'涉毒人员',
-                  type:'bar',
-                  stack: '搜索引擎',
-                  data:[60, 72, 71, 74, 190, 130, 110, 71, 74, 190, 130, 110]
-              },
-              ,
-              {
-                  name:'在逃人员',
-                  type:'bar',
-                  stack: '搜索引擎',
-                  data:[120, 132, 101, 134, 290, 230, 220, 101, 134, 290, 230, 220]
-              },
-              {
-                  name:'重点上访人员',
-                  type:'bar',
-                  stack: '搜索引擎',
-                  data:[60, 72, 71, 74, 190, 130, 110, 71, 74, 190, 130, 110]
-              },
-              {
-                  name:'肇事肇祸精神病人',
-                  type:'bar',
-                  stack: '搜索引擎',
-                  data:[60, 72, 71, 74, 190, 130, 110, 71, 74, 190, 130, 110]
-              },
-              {
-                  name:'重大刑事犯罪前科人员',
-                  type:'bar',
-                  stack: '搜索引擎',
-                  data:[62, 82, 91, 84, 109, 110, 120, 91, 84, 109, 110, 120]
-              }
-          ]
-          };
-    myChart.setOption(option);
-</script>
-<script type="text/javascript">
-    var myChart = echarts.init(document.getElementById('pleftbox2bott_cont'));
-    option = {
-      color:['#7ecef4'],
-        // backgroundColor: 'rgba(1,202,217,.2)',
-        grid: {
-                                        left:40,
-                                        right:20,
-                                        top:30,
-                                        bottom:0,
-                  containLabel: true
-                                    },
-
-              xAxis: {
-                  type: 'value',
-                  axisLine:{
-                   lineStyle:{
-                     color:'rgba(255,255,255,0)'
-                   }
-                 },
-                 splitLine:{
-                   lineStyle:{
-                     color:'rgba(255,255,255,0)'
-                   }
-                 },
-                 axisLabel:{
-                     color:"rgba(255,255,255,0)"
-                 },
-                  boundaryGap: [0, 0.01]
-              },
-              yAxis: {
-                  type: 'category',
-                  axisLine:{
-                   lineStyle:{
-                     color:'rgba(255,255,255,.5)'
-                   }
-                 },
-                 splitLine:{
-                   lineStyle:{
-                     color:'rgba(255,255,255,.1)'
-                   }
-                 },
-                 axisLabel:{
-                     color:"rgba(255,255,255,.5)"
-                 },
-                  data: ['务农','建筑工','技工','销售','职工']
-              },
-              series: [
-                  {
-                      name: '2011年',
-                      type: 'bar',
-                      barWidth :20,
-                      itemStyle: {
-                          normal: {
-                              color: new echarts.graphic.LinearGradient(
-                                  1, 0, 0, 1,
-                                  [
-                                      {offset: 0, color: 'rgba(230,253,139,.7)'},
-                                      {offset: 1, color: 'rgba(41,220,205,.7)'}
-                                  ]
-                              )
-                          }
-                      },
-                      data: [18203, 23489, 29034, 104970, 131744]
-                  }
-              ]
-          };
-    myChart.setOption(option);
-</script>
-<script type="text/javascript">
-    var myChart = echarts.init(document.getElementById('prbottom_box1'));
-    option = {
-      color:['#d2d17c','#7fd7b1', '#5578cf', '#5ebbeb', '#d16ad8','#f8e19a',  '#00b7ee', '#81dabe','#5fc5ce'],
-        backgroundColor: 'rgba(1,202,217,.2)',
-        grid: {
-                  left:20,
-                  right:30,
-                  top:0,
-                  bottom:20
-                },
-                legend: {
-                  top: 5,
-
-                    textStyle:{
-                      fontSize:10,
-                      color:'rgba(255,255,255,.6)'
+                    top: 10,
+                    textStyle: {
+                        fontSize: 10,
+                        color: 'rgba(255,255,255,.7)'
                     },
-            data:['男','女','总数']
-        },
-        grid: {
-          left:20,
-          right:30,
-          top:40,
-          bottom:10,
-            containLabel: true
-        },
-        toolbox: {
-            feature: {
-                saveAsImage: {}
-            }
-        },
-        xAxis: {
-            type: 'category',
-            boundaryGap: false,
-            axisLine:{
-              lineStyle:{
-                color:'rgba(255,255,255,.2)'
-              }
-            },
-            splitLine:{
-              lineStyle:{
-                color:'rgba(255,255,255,.1)'
-              }
-            },
-            axisLabel:{
-                color:"rgba(255,255,255,.7)"
-            },
-            data: ['0-6','6-18','18-28','28-55','55以上']
-        },
-        yAxis: {
-            type: 'value',
-            axisLine:{
-              lineStyle:{
-                color:'rgba(255,255,255,.2)'
-              }
-            },
-            splitLine:{
-              lineStyle:{
-                color:'rgba(255,255,255,.1)'
-              }
-            },
-            axisLabel:{
-                color:"rgba(255,255,255,.7)"
-            },
-        },
-        series: [
-            {
-                name:'男',
-                type:'line',
-                stack: '总量',
-                  areaStyle: {normal: {}},
-                data:[120, 132, 101, 134, 90]
-            },
-            {
-                name:'女',
-                type:'line',
-                stack: '总量',
-                data:[220, 182, 191, 234, 290]
-            },
-            {
-                name:'总数',
-                type:'line',
-                stack: '总量',
-                data:[150, 232, 201, 154, 190]
-            }
-        ]
-        };
-    myChart.setOption(option);
-</script>
-
-<script type="text/javascript">
-        var myChart = echarts.init(document.getElementById('prbottom_box2'));
-        option = {
-            backgroundColor: 'rgba(1,202,217,.2)',
-              color:['#7ecef4','#7fd7b1'],
-            grid: {
-                      left:30,
-                      right:20,
-                      top:20,
-                      bottom:40
-                    },
-                    xAxis: {
-                      axisLine:{
-                                                lineStyle:{
-                                                    color:'rgba(255,255,255,.7)'
-                                                }
-                                            },
-                                            splitLine:{
-                                                lineStyle:{
-                                                    color:'rgba(255,255,255,.1)'
-                                                }
-                                            },
-                      data: ['购物','筹款','裸聊','刷单','赌博','其他']
-                    },
-                    yAxis: {
-                      axisLine:{
-                                                lineStyle:{
-                                                    color:'rgba(255,255,255,.2)'
-                                                }
-                                            },
-                                            splitLine:{
-                                                lineStyle:{
-                                                    color:'rgba(255,255,255,.1)'
-                                                }
-                                            }
-                    },
-                    series: [{
-                        symbolSize: 20,
+                    data: ['活跃用户', '不活跃用户']
+                },
+                series: [
+                    {
+                        name: '访问来源',
+                        type: 'pie',
+                        radius: '55%',
+                        center: ['50%', '65%'],
                         data: [
-                          [0.0, 8.04],
-                           [2.0, 6.95],
-                           [3.0, 7.58],
-                           [5.0, 8.81],
-                           [0.4, 8.33],
-                           [4.0, 1.96],
-                           [0.3, 7.24],
-                           [4.6, 4.26],
-                           [2.0, 4.84],
-                           [2.0, 4.82],
-                           [5.0, 5.68]
+                            {value: 335, name: '活跃用户'},
+                            {value: 310, name: '不活跃用户'}
                         ],
-                        type: 'scatter'
-                    }]
-                };
-    myChart.setOption(option);
-</script>
-
-<script type="text/javascript">
-    var myChart = echarts.init(document.getElementById('prbottom_box3'));
-    option = {
-    backgroundColor: 'rgba(1,202,217,.2)',
-    grid: {
-        left:60,
-        right:20,
-        top:40,
-        bottom:40
-    },
-
-    toolbox: {
-        feature: {
-              dataView: {show: true, readOnly: false},
-              magicType: {show: true, type: ['line', 'bar']},
-              restore: {show: true},
-              saveAsImage: {show: true}
-        }
-    },
-    legend: {
-        top:10,
-        textStyle:{
-            fontSize: 10,
-            color:'rgba(255,255,255,.7)'
-        },
-        data:['男','女','总数']
-    },
-    xAxis: [
-    {
-      type: 'category',
-      axisLine:{
-                                lineStyle:{
-                                    color:'rgba(255,255,255,.2)'
-                                }
-                            },
-                            splitLine:{
-                                lineStyle:{
-                                    color:'rgba(255,255,255,.1)'
-                                }
-                            },
-                            axisLabel:{
-                                    color:"rgba(255,255,255,.7)"
-                            },
-
-      data: ['0-6','6-18','18-28','28-55','55以上'],
-      axisPointer: {
-          type: 'shadow'
-      }
-    }
-    ],
-    yAxis: [
-    {
-      type: 'value',
-      name: '',
-      min: 0,
-      max: 250,
-      interval: 50,
-      axisLine:{
-                                lineStyle:{
-                                    color:'rgba(255,255,255,.3)'
-                                }
-                            },
-                            splitLine:{
-                                lineStyle:{
-                                    color:'rgba(255,255,255,.01)'
-                                }
-                            },
-
-      axisLabel: {
-          formatter: '{value} ml'
-      }
-    },
-    {
-      type: 'value',
-      name: '',
-      max: 25,
-      interval: 5,
-      axisLine:{
-                                lineStyle:{
-                                    color:'rgba(255,255,255,0)'
-                                }
-                            },
-                            splitLine:{
-                                lineStyle:{
-                                    color:'rgba(255,255,255,0)'
-                                }
+                        itemStyle: {
+                            emphasis: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
                             }
-    }
-    ],
-    series: [
+                        }
+                    }
+                ]
+            };
+            myChart.setOption(option);
+        </script>
 
-    {
-      name:'男',
-      type:'bar',
-      itemStyle: {
-                      normal: {
-                          color: new echarts.graphic.LinearGradient(
-                              0, 0, 0, 1,
-                              [
-                                  {offset: 0, color: '#b266ff'},
-                                  {offset: 1, color: '#121b87'}
-                              ]
-                          )
-                      }
-                  },
-      data:[2.0, 4.9, 7.0, 23.2, 25.6]
-    },
-    {
-      name:'女',
-      type:'bar',
-      itemStyle: {
-                      normal: {
-                          color: new echarts.graphic.LinearGradient(
-                              0, 0, 0, 1,
-                              [
-                                  {offset: 0, color: '#00f0ff'},
-                                  {offset: 1, color: '#032a72'}
-                              ]
-                          )
-                      }
-                  },
-      data:[8.6, 5.9, 9.0, 26.4, 28.7]
-    },
-    {
-      name:'总数',
-      type:'bar',
-      itemStyle: {
-                      normal: {
-                          color: new echarts.graphic.LinearGradient(
-                              0, 0, 0, 1,
-                              [
-                                  {offset: 0, color: '#fffb34'},
-                                  {offset: 1, color: '#032a72'}
-                              ]
-                          )
-                      }
-                  },
-      yAxisIndex: 1,
-      data:[6.0, 5.2, 3.3, 4.5, 6.3]
-    }
-    ]
-    };
-    myChart.setOption(option);
-</script>
-                            <script type="text/javascript">
-                                    var myChart = echarts.init(document.getElementById('pmrmidd'));
-                                    option = {
-                                      color:['#f1ff00','#00c1ff', '#61a0a8', '#d48265', '#91c7ae','#749f83',  '#ca8622', '#bda29a','#6e7074', '#546570', '#c4ccd3'],
-                                        // backgroundColor: 'rgba(1,202,217,.2)',
-                                        grid: {
-                            											left:20,
-                            											right:20,
-                            											top:30,
-                            											bottom:30
-                            										},
-                                       radar: {
-                                           name: {
-                                                  textStyle: {
-                                                      fontSize: 10,
-                                                      color: 'rgba(255,255,255,.8)'
-                                                  }
-                                              },
-                                              splitLine: {
-                                                  lineStyle: {
-                                                      color: [
-                                                          'rgba(1,202,217,.01)', 'rgba(1,202,217,.01)'
-                                                      ].reverse()
-                                                  }
-                                              },
-                                              splitArea: {
-                                                  show: false
-                                              },
-                                              axisLine: {
-                                                  lineStyle: {
-                                                      color: 'rgba(1,202,217,.7)'
-                                                  }
-                                              },
-                                           indicator: [
-                                              { name: '红色警情', max: 6500},
-                                              { name: '橙色警情', max: 16000},
-                                              { name: '黄色警情', max: 30000},
-                                              { name: '绿色警情', max: 44000}
-                                           ]
-                                       },
-                                       series: [{
-                                           name: '',
-                                           type: 'radar',
-                                           radius : [5, 100],
-                                           center: ['50%', '50%'],
-                                           data : [
-                                               {
-                                                   value : [4300, 10000, 28000, 19000],
-                                                   name : ''
-                                               },
-                                                {
-                                                   value : [5000, 14000,  22000, 41000],
-                                                   name : ''
-                                               }
-                                           ]
-                                       }]
-                                    };
-                                    myChart.setOption(option);
-                                </script>
+        <script type="text/javascript">
+            var myChart = echarts.init(document.getElementById('prbottom_box2'));
+            option = {
+                backgroundColor: 'rgba(1,202,217,.2)',
+                color: ['#7ecef4', '#7fd7b1'],
+                grid: {
+                    left: 30,
+                    right: 20,
+                    top: 20,
+                    bottom: 40
+                },
+                xAxis: {
+                    axisLine: {
+                        lineStyle: {
+                            color: 'rgba(255,255,255,.7)'
+                        }
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            color: 'rgba(255,255,255,.1)'
+                        }
+                    },
+                    data: ['兼职', '博彩', '色情', '其他']
+                },
+                yAxis: {
+                    axisLine: {
+                        lineStyle: {
+                            color: 'rgba(255,255,255,.2)'
+                        }
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            color: 'rgba(255,255,255,.1)'
+                        }
+                    }
+                },
+                series: [{
+                    symbolSize: 20,
+                    data: [
+                        [0.0, 8.04],
+                        [2.0, 6.95],
+                        [3.0, 7.58],
+                        [5.0, 8.81],
+                        [0.4, 8.33],
+                        [4.0, 1.96],
+                        [0.3, 7.24],
+                        [4.6, 4.26],
+                        [2.0, 4.84],
+                        [2.0, 4.82],
+                        [5.0, 5.68],
+                        [1.0, 4.95],
+                        [1.0, 3.45],
 
-          <!--这行代码可以删除-->
-          <a style="display:none" href="http://www.bootstrapmb.com">bootstrap模板库</a>
+                    ],
+                    type: 'scatter'
+                }]
+            };
+            myChart.setOption(option);
+        </script>
+
 
 </body>
 
@@ -700,20 +235,20 @@
     var myChart = echarts.init(document.getElementById('pleftbox2top'));
     $.get('http://127.0.0.1:5000/pleftbox2top', function (data) {
         myChart.setOption({
-            color: ['#d2d17c','#00b7ee', '#5578cf', '#5ebbeb', '#d16ad8'],
+            color: ['#d2d17c', '#00b7ee', '#5578cf', '#5ebbeb'],
             legend: {
-                textStyle:{
+                textStyle: {
                     fontSize: 10,
-                    color:'rgba(255,255,255,.7)'
+                    color: 'rgba(255,255,255,.7)'
                 },
-                data:['虚假购物类','虚假筹款类', '裸聊类', '刷单类', '其他']
+                data: ['兼职诈骗', '博彩诈骗', '色情诈骗', '其他']
             },
-            series : [
+            series: [
                 {
                     name: '诈骗类型',
                     type: 'pie',    // 设置图表类型为饼图
                     radius: '55%',  // 饼图的半径，外半径为可视区尺寸（容器高宽中较小一项）的 55% 长度。
-                    data:data.data_pie,
+                    data: data.data_pie,
                 }
             ]
         })
@@ -722,6 +257,23 @@
 </script>
 
 <script type="text/javascript">
+    function getDate(num) {
+        var date = new Date();
+        date.setDate(date.getDate() + num)
+        //当使用setDate()之后，date对象就发生了改变，所以之后getDate()就能获取到指定的日期
+        //这里的num就是你要加的天数，减也可以。
+        let year = date.getFullYear()				//年
+        let month = date.getMonth() + 1				//月
+        let day = date.getDate();					//天数
+        if (month >= 1 && month <= 9) {
+            month = `0${month}`
+        }
+        if (day >= 1 && day <= 9) {
+            day = `0${day}`
+        }
+        return `${year}-${month}-${day}`
+    }
+
     // 同比增长折线图开始
     var yearGrowth = echarts.init(document.getElementById('lpeftbot'));
 
@@ -789,7 +341,7 @@
             xAxis: {
                 type: 'category',
                 boundaryGap: false,
-                data: data.x_data,
+                data: [getDate(-9), getDate(-8), getDate(-7), getDate(-6), getDate(-5), getDate(-4), getDate(-3), getDate(-2), getDate(-1), getDate(0)],
             },
 
             series: [{
@@ -802,12 +354,7 @@
     // 同比增长折线图结束
 
 
-
 </script>
-
-
-
-
 <!--显示实时时间-->
 <script>
     function getTime() {
@@ -824,7 +371,7 @@
         return year + '-' + month + '-' + day + '-' + hour + ':' + minute + ':' + seconds;
     }
 
-    setInterval(function() {
+    setInterval(function () {
         document.querySelector('.nowTime').innerHTML = getTime();
         document.querySelector('#now').innerHTML = getTime();
     }, 10)
@@ -844,22 +391,28 @@
     var keyword = echarts.init(document.getElementById('fraudkeyword'));
     $.get('http://127.0.0.1:5000/fraudkeyword', function (data) {
         keyword.setOption({
-            color: ['#d2d17c','#00b7ee', '#5578cf', '#5ebbeb', '#d16ad8'],
+            color: ['#d2d17c', '#00b7ee', '#5578cf', '#5ebbeb'],
             legend: {
-                left: "0%",
-                textStyle:{
+                orient: 'vertical',
+                // left: "0%",
+                align:'left',
+                // x: 'right',
+                // y: 'right',
+
+                // itemWidth: 30,
+                textStyle: {
                     fontSize: 10,
-                    color:'rgba(255,255,255,.7)'
+                    color: 'rgba(255,255,255,.7)'
                 },
-                data:['兼职','赚钱', '博彩', '婚恋', '其他']
+                data: ['兼职', '色情', '博彩', '其他']
             },
-            series : [
+            series: [
                 {
                     name: '诈骗关键词',
                     type: 'pie',    // 设置图表类型为饼图
                     radius: '45%',  // 饼图的半径，外半径为可视区尺寸（容器高宽中较小一项）的 55% 长度。
                     center: ["20%", "50%"],
-                    data:data.data_pie,
+                    data: data.data_pie,
                 }
             ]
         })
@@ -872,207 +425,207 @@
     const scatterMap = echarts.init(document.getElementById("chinamap"));
     //城市经纬度
     const scatterGeo = {
-        "海门":[121.15,31.89],
-        "鄂尔多斯":[109.781327,39.608266],
-        "招远":[120.38,37.35],
-        "舟山":[122.207216,29.985295],
-        "齐齐哈尔":[123.97,47.33],
-        "盐城":[120.13,33.38],
-        "赤峰":[118.87,42.28],
-        "青岛":[120.33,36.07],
-        "乳山":[121.52,36.89],
-        "金昌":[102.188043,38.520089],
-        "泉州":[118.58,24.93],
-        "莱西":[120.53,36.86],
-        "日照":[119.46,35.42],
-        "胶南":[119.97,35.88],
-        "南通":[121.05,32.08],
-        "拉萨":[91.11,29.97],
-        "云浮":[112.02,22.93],
-        "梅州":[116.1,24.55],
-        "文登":[122.05,37.2],
-        "上海":[121.48,31.22],
-        "攀枝花":[101.718637,26.582347],
-        "威海":[122.1,37.5],
-        "承德":[117.93,40.97],
-        "厦门":[118.1,24.46],
-        "汕尾":[115.375279,22.786211],
-        "潮州":[116.63,23.68],
-        "丹东":[124.37,40.13],
-        "太仓":[121.1,31.45],
-        "曲靖":[103.79,25.51],
-        "烟台":[121.39,37.52],
-        "福州":[119.3,26.08],
-        "瓦房店":[121.979603,39.627114],
-        "即墨":[120.45,36.38],
-        "抚顺":[123.97,41.97],
-        "玉溪":[102.52,24.35],
-        "张家口":[114.87,40.82],
-        "阳泉":[113.57,37.85],
-        "莱州":[119.942327,37.177017],
-        "湖州":[120.1,30.86],
-        "汕头":[116.69,23.39],
-        "昆山":[120.95,31.39],
-        "宁波":[121.56,29.86],
-        "湛江":[110.359377,21.270708],
-        "揭阳":[116.35,23.55],
-        "荣成":[122.41,37.16],
-        "连云港":[119.16,34.59],
-        "葫芦岛":[120.836932,40.711052],
-        "常熟":[120.74,31.64],
-        "东莞":[113.75,23.04],
-        "河源":[114.68,23.73],
-        "淮安":[119.15,33.5],
-        "泰州":[119.9,32.49],
-        "南宁":[108.33,22.84],
-        "营口":[122.18,40.65],
-        "惠州":[114.4,23.09],
-        "江阴":[120.26,31.91],
-        "蓬莱":[120.75,37.8],
-        "韶关":[113.62,24.84],
-        "嘉峪关":[98.289152,39.77313],
-        "广州":[113.23,23.16],
-        "延安":[109.47,36.6],
-        "太原":[112.53,37.87],
-        "清远":[113.01,23.7],
-        "中山":[113.38,22.52],
-        "昆明":[102.73,25.04],
-        "寿光":[118.73,36.86],
-        "盘锦":[122.070714,41.119997],
-        "长治":[113.08,36.18],
-        "深圳":[114.07,22.62],
-        "珠海":[113.52,22.3],
-        "宿迁":[118.3,33.96],
-        "咸阳":[108.72,34.36],
-        "铜川":[109.11,35.09],
-        "平度":[119.97,36.77],
-        "佛山":[113.11,23.05],
-        "海口":[110.35,20.02],
-        "江门":[113.06,22.61],
-        "章丘":[117.53,36.72],
-        "肇庆":[112.44,23.05],
-        "大连":[121.62,38.92],
-        "临汾":[111.5,36.08],
-        "吴江":[120.63,31.16],
-        "石嘴山":[106.39,39.04],
-        "沈阳":[123.38,41.8],
-        "苏州":[120.62,31.32],
-        "茂名":[110.88,21.68],
-        "嘉兴":[120.76,30.77],
-        "长春":[125.35,43.88],
-        "胶州":[120.03336,36.264622],
-        "银川":[106.27,38.47],
-        "张家港":[120.555821,31.875428],
-        "三门峡":[111.19,34.76],
-        "锦州":[121.15,41.13],
-        "南昌":[115.89,28.68],
-        "柳州":[109.4,24.33],
-        "三亚":[109.511909,18.252847],
-        "自贡":[104.778442,29.33903],
-        "吉林":[126.57,43.87],
-        "阳江":[111.95,21.85],
-        "泸州":[105.39,28.91],
-        "西宁":[101.74,36.56],
-        "宜宾":[104.56,29.77],
-        "呼和浩特":[111.65,40.82],
-        "成都":[104.06,30.67],
-        "大同":[113.3,40.12],
-        "镇江":[119.44,32.2],
-        "桂林":[110.28,25.29],
-        "张家界":[110.479191,29.117096],
-        "宜兴":[119.82,31.36],
-        "北海":[109.12,21.49],
-        "西安":[108.95,34.27],
-        "金坛":[119.56,31.74],
-        "东营":[118.49,37.46],
-        "牡丹江":[129.58,44.6],
-        "遵义":[106.9,27.7],
-        "绍兴":[120.58,30.01],
-        "扬州":[119.42,32.39],
-        "常州":[119.95,31.79],
-        "潍坊":[119.1,36.62],
-        "重庆":[106.54,29.59],
-        "台州":[121.420757,28.656386],
-        "南京":[118.78,32.04],
-        "滨州":[118.03,37.36],
-        "贵阳":[106.71,26.57],
-        "无锡":[120.29,31.59],
-        "本溪":[123.73,41.3],
-        "克拉玛依":[84.77,45.59],
-        "渭南":[109.5,34.52],
-        "马鞍山":[118.48,31.56],
-        "宝鸡":[107.15,34.38],
-        "焦作":[113.21,35.24],
-        "句容":[119.16,31.95],
-        "北京":[116.46,39.92],
-        "徐州":[117.2,34.26],
-        "衡水":[115.72,37.72],
-        "包头":[110,40.58],
-        "绵阳":[104.73,31.48],
-        "乌鲁木齐":[87.68,43.77],
-        "枣庄":[117.57,34.86],
-        "杭州":[120.19,30.26],
-        "淄博":[118.05,36.78],
-        "鞍山":[122.85,41.12],
-        "溧阳":[119.48,31.43],
-        "库尔勒":[86.06,41.68],
-        "安阳":[114.35,36.1],
-        "开封":[114.35,34.79],
-        "济南":[117,36.65],
-        "德阳":[104.37,31.13],
-        "温州":[120.65,28.01],
-        "九江":[115.97,29.71],
-        "邯郸":[114.47,36.6],
-        "临安":[119.72,30.23],
-        "兰州":[103.73,36.03],
-        "沧州":[116.83,38.33],
-        "临沂":[118.35,35.05],
-        "南充":[106.110698,30.837793],
-        "天津":[117.2,39.13],
-        "富阳":[119.95,30.07],
-        "泰安":[117.13,36.18],
-        "诸暨":[120.23,29.71],
-        "郑州":[113.65,34.76],
-        "哈尔滨":[126.63,45.75],
-        "聊城":[115.97,36.45],
-        "芜湖":[118.38,31.33],
-        "唐山":[118.02,39.63],
-        "平顶山":[113.29,33.75],
-        "邢台":[114.48,37.05],
-        "德州":[116.29,37.45],
-        "济宁":[116.59,35.38],
-        "荆州":[112.239741,30.335165],
-        "宜昌":[111.3,30.7],
-        "义乌":[120.06,29.32],
-        "丽水":[119.92,28.45],
-        "洛阳":[112.44,34.7],
-        "秦皇岛":[119.57,39.95],
-        "株洲":[113.16,27.83],
-        "石家庄":[114.48,38.03],
-        "莱芜":[117.67,36.19],
-        "常德":[111.69,29.05],
-        "保定":[115.48,38.85],
-        "湘潭":[112.91,27.87],
-        "金华":[119.64,29.12],
-        "岳阳":[113.09,29.37],
-        "长沙":[113,28.21],
-        "衢州":[118.88,28.97],
-        "廊坊":[116.7,39.53],
-        "菏泽":[115.480656,35.23375],
-        "合肥":[117.27,31.86],
-        "武汉":[114.31,30.52],
-        "大庆":[125.03,46.58]
+        "海门": [121.15, 31.89],
+        "鄂尔多斯": [109.781327, 39.608266],
+        "招远": [120.38, 37.35],
+        "舟山": [122.207216, 29.985295],
+        "齐齐哈尔": [123.97, 47.33],
+        "盐城": [120.13, 33.38],
+        "赤峰": [118.87, 42.28],
+        "青岛": [120.33, 36.07],
+        "乳山": [121.52, 36.89],
+        "金昌": [102.188043, 38.520089],
+        "泉州": [118.58, 24.93],
+        "莱西": [120.53, 36.86],
+        "日照": [119.46, 35.42],
+        "胶南": [119.97, 35.88],
+        "南通": [121.05, 32.08],
+        "拉萨": [91.11, 29.97],
+        "云浮": [112.02, 22.93],
+        "梅州": [116.1, 24.55],
+        "文登": [122.05, 37.2],
+        "上海": [121.48, 31.22],
+        "攀枝花": [101.718637, 26.582347],
+        "威海": [122.1, 37.5],
+        "承德": [117.93, 40.97],
+        "厦门": [118.1, 24.46],
+        "汕尾": [115.375279, 22.786211],
+        "潮州": [116.63, 23.68],
+        "丹东": [124.37, 40.13],
+        "太仓": [121.1, 31.45],
+        "曲靖": [103.79, 25.51],
+        "烟台": [121.39, 37.52],
+        "福州": [119.3, 26.08],
+        "瓦房店": [121.979603, 39.627114],
+        "即墨": [120.45, 36.38],
+        "抚顺": [123.97, 41.97],
+        "玉溪": [102.52, 24.35],
+        "张家口": [114.87, 40.82],
+        "阳泉": [113.57, 37.85],
+        "莱州": [119.942327, 37.177017],
+        "湖州": [120.1, 30.86],
+        "汕头": [116.69, 23.39],
+        "昆山": [120.95, 31.39],
+        "宁波": [121.56, 29.86],
+        "湛江": [110.359377, 21.270708],
+        "揭阳": [116.35, 23.55],
+        "荣成": [122.41, 37.16],
+        "连云港": [119.16, 34.59],
+        "葫芦岛": [120.836932, 40.711052],
+        "常熟": [120.74, 31.64],
+        "东莞": [113.75, 23.04],
+        "河源": [114.68, 23.73],
+        "淮安": [119.15, 33.5],
+        "泰州": [119.9, 32.49],
+        "南宁": [108.33, 22.84],
+        "营口": [122.18, 40.65],
+        "惠州": [114.4, 23.09],
+        "江阴": [120.26, 31.91],
+        "蓬莱": [120.75, 37.8],
+        "韶关": [113.62, 24.84],
+        "嘉峪关": [98.289152, 39.77313],
+        "广州": [113.23, 23.16],
+        "延安": [109.47, 36.6],
+        "太原": [112.53, 37.87],
+        "清远": [113.01, 23.7],
+        "中山": [113.38, 22.52],
+        "昆明": [102.73, 25.04],
+        "寿光": [118.73, 36.86],
+        "盘锦": [122.070714, 41.119997],
+        "长治": [113.08, 36.18],
+        "深圳": [114.07, 22.62],
+        "珠海": [113.52, 22.3],
+        "宿迁": [118.3, 33.96],
+        "咸阳": [108.72, 34.36],
+        "铜川": [109.11, 35.09],
+        "平度": [119.97, 36.77],
+        "佛山": [113.11, 23.05],
+        "海口": [110.35, 20.02],
+        "江门": [113.06, 22.61],
+        "章丘": [117.53, 36.72],
+        "肇庆": [112.44, 23.05],
+        "大连": [121.62, 38.92],
+        "临汾": [111.5, 36.08],
+        "吴江": [120.63, 31.16],
+        "石嘴山": [106.39, 39.04],
+        "沈阳": [123.38, 41.8],
+        "苏州": [120.62, 31.32],
+        "茂名": [110.88, 21.68],
+        "嘉兴": [120.76, 30.77],
+        "长春": [125.35, 43.88],
+        "胶州": [120.03336, 36.264622],
+        "银川": [106.27, 38.47],
+        "张家港": [120.555821, 31.875428],
+        "三门峡": [111.19, 34.76],
+        "锦州": [121.15, 41.13],
+        "南昌": [115.89, 28.68],
+        "柳州": [109.4, 24.33],
+        "三亚": [109.511909, 18.252847],
+        "自贡": [104.778442, 29.33903],
+        "吉林": [126.57, 43.87],
+        "阳江": [111.95, 21.85],
+        "泸州": [105.39, 28.91],
+        "西宁": [101.74, 36.56],
+        "宜宾": [104.56, 29.77],
+        "呼和浩特": [111.65, 40.82],
+        "成都": [104.06, 30.67],
+        "大同": [113.3, 40.12],
+        "镇江": [119.44, 32.2],
+        "桂林": [110.28, 25.29],
+        "张家界": [110.479191, 29.117096],
+        "宜兴": [119.82, 31.36],
+        "北海": [109.12, 21.49],
+        "西安": [108.95, 34.27],
+        "金坛": [119.56, 31.74],
+        "东营": [118.49, 37.46],
+        "牡丹江": [129.58, 44.6],
+        "遵义": [106.9, 27.7],
+        "绍兴": [120.58, 30.01],
+        "扬州": [119.42, 32.39],
+        "常州": [119.95, 31.79],
+        "潍坊": [119.1, 36.62],
+        "重庆": [106.54, 29.59],
+        "台州": [121.420757, 28.656386],
+        "南京": [118.78, 32.04],
+        "滨州": [118.03, 37.36],
+        "贵阳": [106.71, 26.57],
+        "无锡": [120.29, 31.59],
+        "本溪": [123.73, 41.3],
+        "克拉玛依": [84.77, 45.59],
+        "渭南": [109.5, 34.52],
+        "马鞍山": [118.48, 31.56],
+        "宝鸡": [107.15, 34.38],
+        "焦作": [113.21, 35.24],
+        "句容": [119.16, 31.95],
+        "北京": [116.46, 39.92],
+        "徐州": [117.2, 34.26],
+        "衡水": [115.72, 37.72],
+        "包头": [110, 40.58],
+        "绵阳": [104.73, 31.48],
+        "乌鲁木齐": [87.68, 43.77],
+        "枣庄": [117.57, 34.86],
+        "杭州": [120.19, 30.26],
+        "淄博": [118.05, 36.78],
+        "鞍山": [122.85, 41.12],
+        "溧阳": [119.48, 31.43],
+        "库尔勒": [86.06, 41.68],
+        "安阳": [114.35, 36.1],
+        "开封": [114.35, 34.79],
+        "济南": [117, 36.65],
+        "德阳": [104.37, 31.13],
+        "温州": [120.65, 28.01],
+        "九江": [115.97, 29.71],
+        "邯郸": [114.47, 36.6],
+        "临安": [119.72, 30.23],
+        "兰州": [103.73, 36.03],
+        "沧州": [116.83, 38.33],
+        "临沂": [118.35, 35.05],
+        "南充": [106.110698, 30.837793],
+        "天津": [117.2, 39.13],
+        "富阳": [119.95, 30.07],
+        "泰安": [117.13, 36.18],
+        "诸暨": [120.23, 29.71],
+        "郑州": [113.65, 34.76],
+        "哈尔滨": [126.63, 45.75],
+        "聊城": [115.97, 36.45],
+        "芜湖": [118.38, 31.33],
+        "唐山": [118.02, 39.63],
+        "平顶山": [113.29, 33.75],
+        "邢台": [114.48, 37.05],
+        "德州": [116.29, 37.45],
+        "济宁": [116.59, 35.38],
+        "荆州": [112.239741, 30.335165],
+        "宜昌": [111.3, 30.7],
+        "义乌": [120.06, 29.32],
+        "丽水": [119.92, 28.45],
+        "洛阳": [112.44, 34.7],
+        "秦皇岛": [119.57, 39.95],
+        "株洲": [113.16, 27.83],
+        "石家庄": [114.48, 38.03],
+        "莱芜": [117.67, 36.19],
+        "常德": [111.69, 29.05],
+        "保定": [115.48, 38.85],
+        "湘潭": [112.91, 27.87],
+        "金华": [119.64, 29.12],
+        "岳阳": [113.09, 29.37],
+        "长沙": [113, 28.21],
+        "衢州": [118.88, 28.97],
+        "廊坊": [116.7, 39.53],
+        "菏泽": [115.480656, 35.23375],
+        "合肥": [117.27, 31.86],
+        "武汉": [114.31, 30.52],
+        "大庆": [125.03, 46.58]
     };
     // //城市数据
     // const scatterVal = [
     //
     // ];
     //数据转换，转换后的格式：[{name: 'cityName', value: [lng, lat, val]}, {...}]
-    const convertScatterData = function(data) {
+    const convertScatterData = function (data) {
         let res = [];
-        for(let i=0;i<data.length;i++) {
+        for (let i = 0; i < data.length; i++) {
             let geoCoord = scatterGeo[data[i].name];
-            if(geoCoord) {
+            if (geoCoord) {
                 res.push({
                     name: data[i].name,
                     value: geoCoord.concat(data[i].value)
@@ -1101,7 +654,7 @@
             },
             tooltip: {
                 trigger: 'item',
-                formatter: function(params) {
+                formatter: function (params) {
                     return params.name + ' : ' + params.value[2];
                 }
             },
@@ -1160,27 +713,27 @@
                 },
                 data: convertScatterData(data.activitynumber)
             },
-            {
-                name: '诈骗团体',
-                type: 'scatter',
-                coordinateSystem: 'geo',
-                symbolSize: 12,
-                label: {
-                    normal: {
-                        show: false
+                {
+                    name: '诈骗团体',
+                    type: 'scatter',
+                    coordinateSystem: 'geo',
+                    symbolSize: 12,
+                    label: {
+                        normal: {
+                            show: false
+                        },
+                        emphasis: {
+                            show: false
+                        }
                     },
-                    emphasis: {
-                        show: false
-                    }
-                },
-                itemStyle: {
-                    emphasis: {
-                        borderColor: '#fff',
-                        borderWidth: 1
-                    }
-                },
-                data: convertScatterData(data.groupnumber)
-            }]
+                    itemStyle: {
+                        emphasis: {
+                            borderColor: '#fff',
+                            borderWidth: 1
+                        }
+                    },
+                    data: convertScatterData(data.groupnumber)
+                }]
         };
         //渲染全国地图
         scatterMap.setOption(sactterMapOpt);
